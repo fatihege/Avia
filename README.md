@@ -1,4 +1,4 @@
-# ![test](https://imgupload.io/images/2021/05/13/32x32_reversed_top.png) Avia
+# ![Avia](https://imgupload.io/images/2021/05/13/32x32_reversed_top.png) Avia
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Stars](https://img.shields.io/github/stars/fatihege/Avia)](https://github.com/fatihege/Avia/stargazers)
