@@ -1,0 +1,471 @@
+{
+    "aliases": ["en", "english"],
+    "name": "English",
+    "code": "en_US",
+    "emoji": ":flag_us:",
+    "translates": {
+        "global": {
+            "brand": "Source Squad - Fatih EGE",
+            "support.server": "Support Server",
+            "online": "Online",
+            "offline": "Offline",
+            "channel": "Channel",
+            "message": "Message",
+            "date": {
+                "months": [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "days": [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ],
+                "time": {
+                    "year": "Years",
+                    "month": "Months",
+                    "week": "Weeks",
+                    "day": "Days",
+                    "hour": "Hours",
+                    "minute": "Minutes",
+                    "second": "Seconds"
+                }
+            },
+            "not": {
+                "found.language": "There is no such language.",
+                "bannable": "You cannot ban user <@!{0}> from the server.",
+                "kickable": "You cannot kick user <@!{0}> from the server.",
+                "ban": "This user is not already banned from the server.",
+                "log.not.already": "The log channel is not already selected.",
+                "welcome.not.already": "The welcome channel is not already selected.",
+                "autorole.not.already": "Automatic roles are not already selected.",
+                "botrole.not.already": "Auto bot roles are not already selected.",
+                "target.bot": "The specified person cannot be a bot.",
+                "allow.dm": "<@!{0}> does not accept private messages."
+            },
+            "game": {
+                "started": "New game started!",
+                "ended": "The game is over.",
+                "preparing": "The game is preparing...",
+                "latest.status": "Latest Status",
+                "draw": "Draw",
+                "not": {
+                    "in.game": "<@!{0}> is not in this game.",
+                    "your.turn": "It's not your turn <@! {0}>"
+                }
+            },
+            "command": {
+                "aliases": "Aliases",
+                "description": "Description",
+                "category": "Category",
+                "usage": "Usage",
+                "examples": "Example Uses",
+                "permissions": "Required Permissions"
+            },
+            "empty": "Empty",
+            "checking": "Checking...",
+            "no": {
+                "member": "There is no such member.",
+                "member.or.role": "Please specify a member or role. These are not among the values you entered."
+            },
+            "tag.user": "Lütfen bir üyeyi etiketleyin veya ID'sini girin.",
+            "prefix": "Prefix",
+            "roles": "Roles",
+            "bots": "Bots",
+            "user": {
+                "username": "Username",
+                "status": "Status",
+                "created": "Account Creation",
+                "joined": "Joined this Server",
+                "activity": "Activity"
+            },
+            "guild": {
+                "owner": "Owner",
+                "created": "Creation",
+                "members": "Members",
+                "channels": "Channels",
+                "channel": {
+                    "text": "Text Channel",
+                    "voice": "Voice Channel",
+                    "other": "Other Channels"
+                },
+                "verification.level": "Doğrulama Seviyesi"
+            },
+            "verification.level": {
+                "NONE": "None",
+                "LOW": "Low",
+                "MEDIUM": "Medium",
+                "HIGH": "High",
+                "VERY_HIGH": "Very High"
+            },
+            "permissions": {
+                "CREATE_INSTANT_INVITE": "Create Invite",
+                "KICK_MEMBERS": "Kick Members",
+                "BAN_MEMBERS": "Ban Members",
+                "ADMINISTRATOR": "Administrator",
+                "MANAGE_CHANNELS": "Manage Channels",
+                "MANAGE_GUILD": "Manage Server",
+                "ADD_REACTIONS": "Add Reactions",
+                "VIEW_AUDIT_LOG": "View Audit Log",
+                "PRIORITY_SPEAKER": "Priority Speaker",
+                "STREAM": "Stream",
+                "VIEW_CHANNEL": "View Channel",
+                "SEND_MESSAGES": "Send Messages",
+                "SEND_TTS_MESSAGES": "Send TTS Messages",
+                "MANAGE_MESSAGES": "Manage Messages",
+                "EMBED_LINKS": "Embed Links",
+                "ATTACH_FILES": "Attach Files",
+                "READ_MESSAGE_HISTORY": "Read Message History",
+                "MENTION_EVERYONE": "Use @everyone, @here and Mention All Roles",
+                "USE_EXTERNAL_EMOJIS": "Use External Emojis",
+                "VIEW_GUILD_INSIGHTS": "View Guild Insights",
+                "CONNECT": "Connect",
+                "SPEAK": "Speak",
+                "MUTE_MEMBERS": "Mute Members",
+                "DEAFEN_MEMBERS": "Deafen Members",
+                "MOVE_MEMBERS": "Move Members",
+                "USE_VAD": "Use Voice Action",
+                "CHANGE_NICKNAME": "Change Nickname",
+                "MANAGE_NICKNAMES": "Manage Nicknames",
+                "MANAGE_ROLES": "Manage Roles",
+                "MANAGE_WEBHOOKS": "Manage Webhooks",
+                "MANAGE_EMOJIS": "Manage Emojis",
+                "USE_SLASH_COMMANDS": "Use Slash Commands",
+                "REQUEST_TO_SPEAK": "Request to Speak"
+            }
+        },
+        "category": {
+            "configuration": {
+                "code": "configuration",
+                "name": "Configuration"
+            },
+            "game": {
+                "code": "game",
+                "name": "Game"
+            },
+            "information": {
+                "code": "information",
+                "name": "Information"
+            },
+            "moderation": {
+                "code": "moderation",
+                "name": "Moderation"
+            }
+        },
+        "error": {
+            "reporter": {
+                "title": "Error Reporting",
+                "description": "**Name:** {0}\n**Code:** {1}\n**Method:** {2}\n**Message:** {3}\n**Path:** {4}"
+            }
+        },
+        "event": {
+            "message": {
+                "prefix.message": "The prefix on this server is `{0}`\nFor help with commands, use `{0} help`",
+                "only.owner": "Only the owner of the server (<@!{1}>) can use the command `{0}`.",
+                "no.permission": {
+                    "member": "You do not have sufficient privileges to use the command `{0}`.\nThe permissions you need to use this command:\n\n",
+                    "bot": "The permissions required for the execution of the command `{0}`are not available in the bot.\nRequired permissions:\n\n"
+                },
+                "cooldown": "Please wait **{1}** second(s) before using the command `{0}`.",
+                "incorrect.syntax": "Incorrect syntax. Correct usage of the command `{0}`:\n```\n{1}{0} {2}\n```"
+            }
+        },
+        "command": {
+            "help": {
+                "description": "Opens the help menu.",
+                "usage": "[ command name ]?",
+                "message": {
+                    "for.more": "For more information — {0}help [ command name ]",
+                    "note": "`*` Unlimited Arguments\n`?` Optional Argument\n`{ }` Tag\n`|` May contain as argument"
+                }
+            },
+            "language": {
+                "description": "Allows you to change the language of the bot and reset it.",
+                "usage": "[ language ]?",
+                "message": {
+                    "successful": "The new language has been successfully set to **{0} ({1})**."
+                }
+            },
+            "ping": {
+                "description": "Shows the bot's latency value.",
+                "message": {
+                    "calculating": "Calculating latency...",
+                    "bot": "Bot Latency",
+                    "api": "API Latency"
+                }
+            },
+            "prefix": {
+                "description": "Allows you to change and reset the bot's prefix.",
+                "usage": "[ prefix ]",
+                "message": {
+                    "too.long": "The prefix can be up to 5 characters. The prefix you specified exceeds 5 characters.",
+                    "successful": "New prefix has been successfully set to `{0}`."
+                }
+            },
+            "userinfo": {
+                "description": "Shows your or a member's information on the server.",
+                "usage": "{ user }?",
+                "message": {
+                    "title": "User Information"
+                }
+            },
+            "serverinfo": {
+                "description": "Shows the server's information.",
+                "message": {
+                    "title": "Server Information",
+                    "roles.info": "To view roles, use the command `{0}serverroles`."
+                }
+            },
+            "serverroles": {
+                "description": "Lists roles available on the server.",
+                "message": {
+                    "title": "Role List [{0}]",
+                    "members": "{0} Members",
+                    "no.roles": "There is no role on this server."
+                }
+            },
+            "purge": {
+                "description": "Deletes the specified number of messages from the channel where the command is used.",
+                "usage": "[ amount ]",
+                "message": {
+                    "must.be.number": "Value entered must be a number.",
+                    "deleted": "**{0}** messages have been deleted successfully.",
+                    "out.of.range": "The value entered must be in the range of 2-100. **{0}** not in this range."
+                }
+            },
+            "avatar": {
+                "description": "Displays the avatar of the specified member.",
+                "usage": "{ user }?"
+            },
+            "statistics": {
+                "description": "Shows bot's usage statistics.",
+                "message": {
+                    "title": "Statistics",
+                    "description": "**Total Servers:** {0}\n**Total Users:** {1}\n**API Latency:** {2}\n**Total Memory:** {3}\n**Free Memory:** {4}\n**Memory Used:** {5}\n**Uptime:** {6}"
+                }
+            },
+            "invite": {
+                "description": "Shows the bot's invite link, support server, Top.gg page and open source link.",
+                "message": {
+                    "invite.url": {
+                        "title": "Invite Link",
+                        "description": "Click to invite!"
+                    },
+                    "support.server": {
+                        "description": "Join us"
+                    },
+                    "top.gg": {
+                        "title": "Support Us",
+                        "description": "Vote, support us"
+                    },
+                    "open.source": {
+                        "title": "Open Source",
+                        "description": "GitHub"
+                    }
+                }
+            },
+            "invitecount": {
+                "description": "Shows the number of invite links of the specified member and the total number of people invited.",
+                "usage": "{ user }?",
+                "message": {
+                    "description": "**Total Invite Link:** {0}\n**Total Number of Invitations:** {1}"
+                }
+            },
+            "botinfo": {
+                "description": "Shows the bot's versions and operating system in detail.",
+                "message": {
+                    "title": "Bot Information",
+                    "field": {
+                        "os": {
+                            "name": "Operating System",
+                            "value": "**Uptime:** {1}\n```\n{0}\n```"
+                        },
+                        "uptime": {
+                            "name": "Uptime"
+                        },
+                        "versions": {
+                            "name": "Versions",
+                            "value": "**Node.js:**: {0}\n**Discord.js:** {1}"
+                        },
+                        "cpu": {
+                            "name": "Central Processing Unit",
+                            "value": "**Model:** {0}\n**Speed:** {1}\n**Cores:** {2}\n**Threads:** {3}"
+                        },
+                        "ram": {
+                            "name": "Memory",
+                            "value": "**Total:** {0}\n**Free:** {1}\n**Used:** {2}\n**Used by bot:** {3}\n**Used by Shard:** {4}"
+                        }
+                    }
+                }
+            },
+            "setnickname": {
+                "description": "Changes the nickname of the specified member.",
+                "usage": "{ user } [ nickname ]",
+                "message": {
+                    "changed": "The nickname of member <@!{0}> has been successfully set to \"**{1}**\".",
+                    "too.long": "The nickname must be a maximum of 32 characters. The nickname you specified exceeds this size."
+                }
+            },
+            "giverole": {
+                "description": "Grant specified members the specified roles.",
+                "usage": "{ user }* { role }*",
+                "message": {
+                    "processing": "Giving roles...",
+                    "gived": "The roles you specified were successfully added to the members you specified.",
+                    "error": "An error occurred while giving the specified roles to specified members. Drag the role of the bot up and try again."
+                }
+            },
+            "removerole": {
+                "description": "Remove specified roles to specified members.",
+                "usage": "{ user }* { role }*",
+                "message": {
+                    "processing": "Removing roles...",
+                    "removed": "The roles you specified were successfully removed from the members you specified.",
+                    "error": "An error occurred while removing the specified roles from specified members. Drag the role of the bot up and try again."
+                }
+            },
+            "ban": {
+                "description": "Ban the specified member from the server.",
+                "usage": "{ user } [ reason ]?",
+                "message": {
+                    "banned": "**{0}** was successfully banned from the server.",
+                    "cannot.ban.yourself": "You cannot ban yourself from the server with this command."
+                }
+            },
+            "kick": {
+                "description": "Kicks the specified member from the server.",
+                "usage": "{ user } [ reason ]?",
+                "message": {
+                    "kicked": "**{0}** was successfully kicked from the server.",
+                    "cannot.kick.yourself": "You cannot kick yourself from the server with this command."
+                }
+            },
+            "unban": {
+                "description": "Removes the ban of the specified member from the server.",
+                "usage": "{ user }",
+                "message": {
+                    "unbanned": "The ban for user **{0}** has been successfully lifted."
+                }
+            },
+            "log": {
+                "description": "Allows you to set the channel where the events that occur on the server will be logged.",
+                "usage": "{ channel }",
+                "message": {
+                    "reseted": "Log channel removed successfully.",
+                    "successful": "Logging channel successfully set to <#{0}>.",
+                    "not.selected": "Logging channel not selected."
+                }
+            },
+            "welcome": {
+                "description": "Allows you to set the channel to which new members joining the server will be greeted and the message to be sent.",
+                "usage": "{ channel } [ message | [userName] | [userTag] ]",
+                "message": {
+                    "reseted": "Welcome channel removed successfully.",
+                    "out.of.range": "The size of the welcome message must be in the range 10-500.",
+                    "successful": "Welcome channel set up successfully.\n**Channel:** <#{0}>\n**Message:**\n{1}",
+                    "not.selected": "The welcome channel and message are not selected."
+                }
+            },
+            "leave": {
+                "description": "Allows you to set the channel and message that will be sent when a member leaves the server.",
+                "usage": "{ channel } [ message | [userName] | [userTag] ]",
+                "message": {
+                    "reseted": "Member leave channel removed successfully.",
+                    "out.of.range": "The size of the member leave message must be in the range of 10-500.",
+                    "successful": "Member Leave channel set up successfully.\n**Channel:** <#{0}>\n**Message:**\n{1}",
+                    "not.selected": "The member leave channel and message are not selected."
+                }
+            },
+            "autorole": {
+                "description": "Allows you to set the roles assigned to new members joining the server.",
+                "usage": "{ role }*",
+                "message": {
+                    "reseted": "Automatic roles have been removed successfully.",
+                    "out.of.range": "Up to 5 roles can be selected.",
+                    "successful": "Automatic roles set up successfully.",
+                    "not.selected": "No automatic roles have been selected."
+                }
+            },
+            "botrole": {
+                "description": "Allows you to set the roles of bots that have just joined the server.",
+                "usage": "{ role }*",
+                "message": {
+                    "reseted": "Auto bot roles removed successfully.",
+                    "out.of.range": "Up to 5 roles can be selected.",
+                    "successful": "Auto bot roles set up successfully.",
+                    "not.selected": "No auto bot roles selected."
+                }
+            },
+            "murdermystery": {
+                "description": "Allows you to play murder mystery game with specified members.",
+                "usage": "[ murderer count ]? { user }*",
+                "arg": {
+                    "guess": "guess"
+                },
+                "message": {
+                    "process": "There is an ongoing game on this channel.\nType `a.murdermystery end` to end the game.",
+                    "not.started": "Murder mystery game has not been started on this channel.",
+                    "gamer.range": "In order for the game to start, a minimum of 3, a maximum of 20 people must play.",
+                    "min.innocent": "At least 2 players must be innocent.",
+                    "murderers.higher": "The number of murderers cannot exceed the number of players.",
+                    "not.tag.yourself": "You can't get out of the game by tagging yourself.",
+                    "for.guess": "To guess — `{0}murdermystery -- { user }`",
+                    "murderers": "Murderers",
+                    "count": {
+                        "murderer": "Murderer Count",
+                        "innocent": "Innocent Count"
+                    },
+                    "you.are": {
+                        "murderer": "You became the **murderer** in the murder mystery game played on <#{0}>",
+                        "innocent": "You became the **innocent** in the murder mystery game played on <#{0}>"
+                    },
+                    "is": {
+                        "murderer": "<@!{0}> is Murderer",
+                        "innocent": "<@!{0}> is Innocent"
+                    },
+                    "win": {
+                        "murderers": "Murderers won!",
+                        "innocents": "Innocents won!"
+                    }
+                }
+            },
+            "xox": {
+                "description": "Allows you to play XOX game with specified member.",
+                "usage": "{ user }",
+                "message": {
+                    "already.placed": "You already placed {0} in the target region <@!{1}>",
+                    "block.full": "{0} the block you want to put is full <@!{1}>",
+                    "won": "Congratulations <@!{0}>! You won the game.",
+                    "draw": "The game has no winners or losers, friendship won!"
+                }
+            },
+            "guessnumber": {
+                "description": "Starts the number guessing game.",
+                "usage": "[ upper limit ]",
+                "message": {
+                    "limit.range": "The upper limit should be in the range of 10-100.",
+                    "kept.number": "I kept a random number between **1-{0}** in my mind.\nFor guess — `-- [ number ]`\nTo exit the game — `-- end`",
+                    "right": "You got it right! The number I keep in mind: **{0}**",
+                    "wrong": {
+                        "higher": "The number I keep in mind is **higher** than the number you wrote.",
+                        "smaller": "The number I keep in mind is **smaller** than the number you wrote."
+                    }
+                }
+            }
+        }
+    }
+}

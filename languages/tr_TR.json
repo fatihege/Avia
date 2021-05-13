@@ -1,0 +1,471 @@
+{
+    "aliases": ["tr", "türkçe", "turkce"],
+    "name": "Türkçe",
+    "code": "tr_TR",
+    "emoji": ":flag_tr:",
+    "translates": {
+        "global": {
+            "brand": "Source Squad - Fatih EGE",
+            "support.server": "Destek Sunucusu",
+            "online": "Çevrimiçi",
+            "offline": "Çevrimdışı",
+            "channel": "Kanal",
+            "message": "Mesaj",
+            "date": {
+                "months": [
+                    "Ocak",
+                    "Şubat",
+                    "Mart",
+                    "Nisan",
+                    "Mayıs",
+                    "Haziran",
+                    "Temmuz",
+                    "Ağustos",
+                    "Eylül",
+                    "Ekim",
+                    "Kasım",
+                    "Aralık"
+                ],
+                "days": [
+                    "Pazar",
+                    "Pazartesi",
+                    "Salı",
+                    "Çarşamba",
+                    "Perşembe",
+                    "Cuma",
+                    "Cumartesi"
+                ],
+                "time": {
+                    "year": "Yıl",
+                    "month": "Ay",
+                    "week": "Hafta",
+                    "day": "Gün",
+                    "hour": "Saat",
+                    "minute": "Dakika",
+                    "second": "Saniye"
+                }
+            },
+            "not": {
+                "found.language": "Böyle bir dil yok.",
+                "bannable": "<@!{0}> kullanıcısını sunucudan yasaklayamazsın.",
+                "kickable": "<@!{0}> kullanıcısını sunucudan atamazsın.",
+                "ban": "Bu kullanıcı zaten sunucudan yasaklanmamış.",
+                "log.not.already": "Günlük kaydı kanalı zaten seçilmemiş.",
+                "welcome.not.already": "Hoşgeldiniz kanalı zaten seçilmemiş.",
+                "autorole.not.already": "Otomatik roller zaten seçilmemiş.",
+                "botrole.not.already": "Otomatik bot rolleri zaten seçilmemiş.",
+                "target.bot": "Belirtilen kişi bir bot olamaz.",
+                "allow.dm": "<@!{0}> özel mesajları kabul etmiyor."
+            },
+            "game": {
+                "started": "Yeni oyun başladı!",
+                "ended": "Oyun sonlandı.",
+                "preparing": "Oyun hazırlanıyor...",
+                "latest.status": "Son Durum",
+                "draw": "Beraberlik",
+                "not": {
+                    "in.game": "<@!{0}> bu oyunda yok.",
+                    "your.turn": "Senin sıran değil <@!{0}>"
+                }
+            },
+            "command": {
+                "aliases": "Takma Adları",
+                "description": "Açıklama",
+                "category": "Kategori",
+                "usage": "Kullanım",
+                "examples": "Örnek Kullanımlar",
+                "permissions": "Gerekli Yetkiler"
+            },
+            "empty": "Boş",
+            "checking": "Kontrol ediliyor...",
+            "no": {
+                "member": "Böyle bir üye yok.",
+                "member.or.role": "Lütfen bir üye veya rol belirtin. Girdiğiniz değerler arasında bunlar yok."
+            },
+            "tag.user": "Lütfen bir üyeyi etiketleyin veya ID'sini girin.",
+            "prefix": "Ön ek",
+            "roles": "Roller",
+            "bots": "Botlar",
+            "user": {
+                "username": "Kullanıcı Adı",
+                "status": "Durum",
+                "created": "Hesap Oluşturma",
+                "joined": "Sunucuya Katılma",
+                "activity": "Aktivite"
+            },
+            "guild": {
+                "owner": "Sahip",
+                "created": "Oluşturulma",
+                "members": "Üyeler",
+                "channels": "Kanallar",
+                "channel": {
+                    "text": "Metin Kanalı",
+                    "voice": "Ses Kanalı",
+                    "other": "Diğer Kanallar"
+                },
+                "verification.level": "Doğrulama Seviyesi"
+            },
+            "verification.level": {
+                "NONE": "Yok",
+                "LOW": "Düşük",
+                "MEDIUM": "Orta",
+                "HIGH": "Yüksek",
+                "VERY_HIGH": "Çok Yüksek"
+            },
+            "permissions": {
+                "CREATE_INSTANT_INVITE": "Davet Oluştur",
+                "KICK_MEMBERS": "Üyeleri At",
+                "BAN_MEMBERS": "Üyeleri Yasakla",
+                "ADMINISTRATOR": "Yönetici",
+                "MANAGE_CHANNELS": "Kanalları Yönet",
+                "MANAGE_GUILD": "Sunucuyu Yönet",
+                "ADD_REACTIONS": "Tepki Ekle",
+                "VIEW_AUDIT_LOG": "Denetim Kaydını Görüntüle",
+                "PRIORITY_SPEAKER": "Öncelikli Konuşmacı",
+                "STREAM": "Video",
+                "VIEW_CHANNEL": "Kanalı Görüntüle",
+                "SEND_MESSAGES": "Mesaj Gönder",
+                "SEND_TTS_MESSAGES": "Metin Okuma Mesajı Gönder",
+                "MANAGE_MESSAGES": "Mesajları Yönet",
+                "EMBED_LINKS": "Bağlantı Yerleştir",
+                "ATTACH_FILES": "Dosya Ekle",
+                "READ_MESSAGE_HISTORY": "Mesaj Geçmişini Oku",
+                "MENTION_EVERYONE": "@everyone, @here kullan ve Tüm Rollerden Bahset",
+                "USE_EXTERNAL_EMOJIS": "Harici Emoji Kullan",
+                "VIEW_GUILD_INSIGHTS": "Sunucu Bilgilerini Görüntüle",
+                "CONNECT": "Bağlan",
+                "SPEAK": "Konuş",
+                "MUTE_MEMBERS": "Üyeleri Sustur",
+                "DEAFEN_MEMBERS": "Üyeleri Sağırlaştır",
+                "MOVE_MEMBERS": "Üyeleri Taşı",
+                "USE_VAD": "Ses Eylemini Kullan",
+                "CHANGE_NICKNAME": "Kullanıcı Adı Değiştir",
+                "MANAGE_NICKNAMES": "Kullanıcı Adlarını Yönet",
+                "MANAGE_ROLES": "Rolleri Yönet",
+                "MANAGE_WEBHOOKS": "Webhook'ları Yönet",
+                "MANAGE_EMOJIS": "Emojileri Yönet",
+                "USE_SLASH_COMMANDS": "Eğik Çizgi Komutları Kullan",
+                "REQUEST_TO_SPEAK": "Konuşmayı Talep Et"
+            }
+        },
+        "category": {
+            "configuration": {
+                "code": "configuration",
+                "name": "Konfigürasyon"
+            },
+            "game": {
+                "code": "game",
+                "name": "Oyun"
+            },
+            "information": {
+                "code": "information",
+                "name": "Bilgi"
+            },
+            "moderation": {
+                "code": "moderation",
+                "name": "Moderasyon"
+            }
+        },
+        "error": {
+            "reporter": {
+                "title": "Hata Bildirimi",
+                "description": "**Ad:** {0}\n**Kod:** {1}\n**Yöntem:** {2}\n**Mesaj:** {3}\n**Yol:** {4}"
+            }
+        },
+        "event": {
+            "message": {
+                "prefix.message": "Bu sunucudaki ön ek `{0}`\nKomutlar hakkında yardım için `{0}yardim`",
+                "only.owner": "`{0}` komutunu sadece sunucunun sahibi (<@!{1}>) kullanabilir.",
+                "no.permission": {
+                    "member": "`{0}` komutunu kullanmak için yeterli yetkiye sahip değilsin.\nBu komutu kullanman için gereken yetkiler:\n\n",
+                    "bot": "`{0}` komutunun çalışması için gereken yetkiler botta bulunmuyor.\nGereken yetkiler:\n\n"
+                },
+                "cooldown": "Lütfen `{0}` komutunu kullanmadan önce **{1}** saniye bekleyin.",
+                "incorrect.syntax": "Yanlış kullanım. `{0}` komutunun doğru kullanımı:\n```\n{1}{0} {2}\n```"
+            }
+        },
+        "command": {
+            "help": {
+                "description": "Yardım menüsünü açar.",
+                "usage": "[ komut adı ]?",
+                "message": {
+                    "for.more": "Daha fazla bilgi almak için — {0}yardim [ komut adı ]",
+                    "note": "`*` Sınırsız Argüman\n`?` Opsiyonel Argüman\n`{ }` Etiket\n`|` Argüman olarak içerebilir"
+                }
+            },
+            "language": {
+                "description": "Botun dilini değiştirmenizi ve sıfırlamanızı sağlar.",
+                "usage": "[ dil ]?",
+                "message": {
+                    "successful": "Yeni dil başarıyla **{0} ({1})** olarak ayarlandı."
+                }
+            },
+            "ping": {
+                "description": "Botun gecikme değerini gösterir.",
+                "message": {
+                    "calculating": "Gecikme hesaplanıyor...",
+                    "bot": "Bot Gecikmesi",
+                    "api": "API Gecikmesi"
+                }
+            },
+            "prefix": {
+                "description": "Botun ön ekini değiştirmenizi ve sıfırlamanızı sağlar.",
+                "usage": "[ ön ek ]",
+                "message": {
+                    "too.long": "Ön ek en fazla 5 karakter olabilir. Belirttiğiniz ön ek 5 karakteri aşıyor.",
+                    "successful": "Yeni ön ek başarıyla `{0}` olarak ayarlandı."
+                }
+            },
+            "userinfo": {
+                "description": "Sizin veya sunucudaki bir üyenin bilgilerini gösterir.",
+                "usage": "{ kullanıcı }?",
+                "message": {
+                    "title": "Kullanıcı Bilgisi"
+                }
+            },
+            "serverinfo": {
+                "description": "Sunucunun bilgilerini gösterir.",
+                "message": {
+                    "title": "Sunucu Bilgisi",
+                    "roles.info": "Rolleri görüntülemek için `{0}sunucurolleri` komutunu kullanın."
+                }
+            },
+            "serverroles": {
+                "description": "Sunucuda bulunan rolleri listeler.",
+                "message": {
+                    "title": "Rol Listesi [{0}]",
+                    "members": "{0} Üye",
+                    "no.roles": "Bu sunucuda hiçbir rol yok."
+                }
+            },
+            "purge": {
+                "description": "Komutun kullanıldığı kanaldan belirtilen sayı kadar mesajı siler.",
+                "usage": "[ miktar ]",
+                "message": {
+                    "must.be.number": "Girilen değer bir sayı olmalı.",
+                    "deleted": "**{0}** mesaj başarıyla silindi.",
+                    "out.of.range": "Girilen değer 2-100 aralığında olmalı. **{0}** bu aralıkta değil."
+                }
+            },
+            "avatar": {
+                "description": "Belirtilen üyenin avatarını görüntüler.",
+                "usage": "{ kullanıcı }?"
+            },
+            "statistics": {
+                "description": "Botun kullanım istatistiklerini gösterir.",
+                "message": {
+                    "title": "İstatistikler",
+                    "description": "**Toplam Sunucu:** {0}\n**Toplam Kullanıcı:** {1}\n**API Gecikmesi:** {2}\n**Toplam Bellek:** {3}\n**Boş Bellek:** {4}\n**Kullanılan Bellek:** {5}\n**Çalışma Süresi:** {6}"
+                }
+            },
+            "invite": {
+                "description": "Botun davet bağlantısını, destek sunucusunu, Top.gg sayfasını ve açık kaynak bağlantısını gösterir.",
+                "message": {
+                    "invite.url": {
+                        "title": "Davet Bağlantısı",
+                        "description": "Davet etmek için tıkla!"
+                    },
+                    "support.server": {
+                        "description": "Aramıza katıl"
+                    },
+                    "top.gg": {
+                        "title": "Destek Ol",
+                        "description": "Oy ver, bize destek ol"
+                    },
+                    "open.source": {
+                        "title": "Açık Kaynak",
+                        "description": "GitHub"
+                    }
+                }
+            },
+            "invitecount": {
+                "description": "Belirtilen üyenin davet bağlantısı sayısını ve davet ettiği toplam kişiyi gösterir.",
+                "usage": "{ kullanıcı }?",
+                "message": {
+                    "description": "**Toplam Davet Bağlantısı:** {0}\n**Toplam Davet Sayısı:** {1}"
+                }
+            },
+            "botinfo": {
+                "description": "Detaylı olarak botun sürüm ve işletim sistemi bilgilerini gösterir.",
+                "message": {
+                    "title": "Bot Bilgisi",
+                    "field": {
+                        "os": {
+                            "name": "İşletim Sistemi",
+                            "value": "**Açık Kalma:** {1}\n```\n{0}\n```"
+                        },
+                        "uptime": {
+                            "name": "Çalışma Süresi"
+                        },
+                        "versions": {
+                            "name": "Sürümler",
+                            "value": "**Node.js:**: {0}\n**Discord.js:** {1}"
+                        },
+                        "cpu": {
+                            "name": "Merkezi İşlem Birimi",
+                            "value": "**Model:** {0}\n**Hız:** {1}\n**Çekirdek:** {2}\n**İş Parçacığı:** {3}"
+                        },
+                        "ram": {
+                            "name": "Bellek",
+                            "value": "**Toplam:** {0}\n**Boş:** {1}\n**Kullanılan:** {2}\n**Botun Kullandığı:** {3}\n**Shard'ın Kullandığı:** {4}"
+                        }
+                    }
+                }
+            },
+            "setnickname": {
+                "description": "Belirtilen üyenin takma adının değiştirir.",
+                "usage": "{ kullanıcı } [ takma ad ]",
+                "message": {
+                    "changed": "<@!{0}> üyesinin takma adı başarıyla \"**{1}**\" olarak ayarlandı.",
+                    "too.long": "Takma ad en fazla 32 karakter olmalı. Belirttiğiniz takma ad bu boyutu aşıyor."
+                }
+            },
+            "giverole": {
+                "description": "Belirtilen üyelere belirtilen rolleri verin.",
+                "usage": "{ kullanıcı }* { rol }*",
+                "message": {
+                    "processing": "Roller veriliyor...",
+                    "gived": "Belirttiğiniz roller, belirttiğiniz üyelere başarıyla eklendi.",
+                    "error": "Belirtilen roller, belirtilen üyelere verilirken bir hata oluştu. Botun rolünü yukarı sürükleyip tekrar deneyin."
+                }
+            },
+            "removerole": {
+                "description": "Belirtilen üyelere belirtilen rolleri kaldırın.",
+                "usage": "{ kullanıcı }* { rol }*",
+                "message": {
+                    "processing": "Roller kaldırılıyor...",
+                    "removed": "Belirttiğiniz roller, belirttiğiniz üyelerden başarıyla kaldırıldı.",
+                    "error": "Belirtilen roller, belirtilen üyelerden alınırken bir hata oluştu. Botun rolünü yukarı sürükleyip tekrar deneyin."
+                }
+            },
+            "ban": {
+                "description": "Belirtilen üyeyi sunucudan yasaklar.",
+                "usage": "{ kullanıcı } [ sebep ]?",
+                "message": {
+                    "banned": "**{0}** başarıyla sunucudan yasaklandı.",
+                    "cannot.ban.yourself": "Kendini bu komutla sunucudan yasaklayamazsın."
+                }
+            },
+            "kick": {
+                "description": "Belirtilen üyeyi sunucudan atar.",
+                "usage": "{ kullanıcı } [ sebep ]?",
+                "message": {
+                    "kicked": "**{0}** başarıyla sunucudan atıldı.",
+                    "cannot.kick.yourself": "Kendini bu komutla sunucudan atamazsın."
+                }
+            },
+            "unban": {
+                "description": "Belirtilen üyenin sunucudan yasağını kaldırır.",
+                "usage": "{ kullanıcı }",
+                "message": {
+                    "unbanned": "**{0}** kullanıcısının yasağı başarıyla kaldırırldı."
+                }
+            },
+            "log": {
+                "description": "Sunucuda gerçekleşen olayların günlük kaydının tutulacağı kanalı ayarlamanızı sağlar.",
+                "usage": "{ kanal }",
+                "message": {
+                    "reseted": "Günlük kaydı kanalı başarıyla kaldırıldı.",
+                    "successful": "Günlük kaydı kanalı başarıyla <#{0}> olarak ayarlandı.",
+                    "not.selected": "Günlük kaydı kanalı seçilmemiş."
+                }
+            },
+            "welcome": {
+                "description": "Sunucuya yeni katılan üyelerin karşılanacağı kanalı ve gönderilecek mesajı ayarlamanızı sağlar.",
+                "usage": "{ kanal } [ mesaj | [userName] | [userTag] ]",
+                "message": {
+                    "reseted": "Hoşgeldiniz kanalı başarıyla kaldırıldı.",
+                    "out.of.range": "Hoşgeldin mesajının boyutu 10-500 aralığında olmalı.",
+                    "successful": "Hoşgeldiniz kanalı başarıyla ayarlandı.\n**Kanal:** <#{0}>\n**Mesaj:**\n{1}",
+                    "not.selected": "Hoşgeldiniz kanalı ve mesajı seçilmemiş."
+                }
+            },
+            "leave": {
+                "description": "Sunucudan bir üye ayrıldığında mesaj gönderlecek kanalı ve mesajı ayarlamanızı sağlar.",
+                "usage": "{ kanal } [ mesaj | [userName] | [userTag] ]",
+                "message": {
+                    "reseted": "Üye ayrılma kanalı başarıyla kaldırıldı.",
+                    "out.of.range": "Üye Ayrılma mesajının boyutu 10-500 aralığında olmalı.",
+                    "successful": "Üye Ayrılma kanalı başarıyla ayarlandı.\n**Kanal:** <#{0}>\n**Mesaj:**\n{1}",
+                    "not.selected": "Üye Ayrılma kanalı ve mesajı seçilmemiş."
+                }
+            },
+            "autorole": {
+                "description": "Sunucuya yeni katılan üyelere verilecek rolleri ayarlamanızı sağlar.",
+                "usage": "{ rol }*",
+                "message": {
+                    "reseted": "Otomatik roller başarıyla kaldırıldı.",
+                    "out.of.range": "En fazla 5 rol seçilebilir.",
+                    "successful": "Otomatik roller başarıyla ayarlandı.",
+                    "not.selected": "Herhangi bir otomatik rol seçilmemiş."
+                }
+            },
+            "botrole": {
+                "description": "Sunucuya yeni katılan botlara verilecek rolleri ayarlamanızı sağlar.",
+                "usage": "{ rol }*",
+                "message": {
+                    "reseted": "Otomatik bot rolleri başarıyla kaldırıldı.",
+                    "out.of.range": "En fazla 5 rol seçilebilir.",
+                    "successful": "Otomatik bot rolleri başarıyla ayarlandı.",
+                    "not.selected": "Herhangi bir otomatik bot rolü seçilmemiş."
+                }
+            },
+            "murdermystery": {
+                "description": "Belirtilen üyelerle katil kim oyunu oynamanızı sağlar.",
+                "usage": "[ katil sayısı ]? { kullanıcı }*",
+                "arg": {
+                    "guess": "tahmin"
+                },
+                "message": {
+                    "process": "Bu kanalda devam eden bir oyun var.\nOyunu sonlandırmak için `a.katilkim end` yazın.",
+                    "not.started": "Bu kanalda katil kim oyunu başlatılmamış.",
+                    "gamer.range": "Oyunun başlaması için en az 3, en fazla 20 kişi oynamalı.",
+                    "min.innocent": "En az 2 oyuncu masum olmalı.",
+                    "murderers.higher": "Katil sayısı, oyuncu sayısından fazla olamaz.",
+                    "not.tag.yourself": "Kendini etiketleyerek oyun dışına çıkamazsın.",
+                    "for.guess": "Tahminde bulunmak için — `{0}katilkim -- { kullanıcı }`",
+                    "murderers": "Katiller",
+                    "count": {
+                        "murderer": "Katil Sayısı",
+                        "innocent": "Masum Sayısı"
+                    },
+                    "you.are": {
+                        "murderer": "<#{0}> kanalında oynanan katil kim oyununda **katil** oldunuz.",
+                        "innocent": "<#{0}> kanalında oynanan katil kim oyununda **masum** oldunuz."
+                    },
+                    "is": {
+                        "murderer": "<@!{0}> Katil",
+                        "innocent": "<@!{0}> Masum"
+                    },
+                    "win": {
+                        "murderers": "Katiller kazandı!",
+                        "innocents": "Masumlar kazandı!"
+                    }
+                }
+            },
+            "xox": {
+                "description": "Belirtilen üyeyle XOX oyunu oynamanızı sağlar.",
+                "usage": "{ kullanıcı }",
+                "message": {
+                    "already.placed": "Hedefteki bölgeye zaten {0} yerleştirmişsin <@!{1}>",
+                    "block.full": "{0} koymak istediğin blok dolu <@!{1}>",
+                    "won": "Tebrikler <@!{0}>! Oyunu kazandınız.",
+                    "draw": "Oyunun kazananı da kaybedeni de yok, dostluk kazandı!"
+                }
+            },
+            "guessnumber": {
+                "description": "Sayı tahmin oyununu başlatır.",
+                "usage": "[ üst sınır ]",
+                "message": {
+                    "limit.range": "Üst sınır 10-100 aralığında olmalıdır.",
+                    "kept.number": "Aklımdan **1-{0}** arasında rastgele bir sayı tuttum.\nTahmin etmek için — `-- [ sayı ]`\nOyundan çıkmak için — `-- end`",
+                    "right": "Doğru bildiniz! Aklımdan tuttuğum sayı: **{0}**",
+                    "wrong": {
+                        "higher": "Aklımdan tuttuğum sayı yazdığınız sayıdan daha **yüksek**.",
+                        "smaller": "Aklımdan tuttuğum sayı yazdığınız sayıdan daha **küçük**."
+                    }
+                }
+            }
+        }
+    }
+}

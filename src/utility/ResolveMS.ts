@@ -1,0 +1,1 @@
+export default (time: number): string => time > 1000 ? `${time / 1000} S` : `${time} MS`;

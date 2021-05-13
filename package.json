@@ -1,0 +1,30 @@
+{
+  "name": "avia",
+  "version": "1.0.0",
+  "description": "Strong, stable and fast Discord moderation and game bot.",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --ext ts-node src/index.ts",
+    "dev:build": "yarn build && yarn dev",
+    "start": "node dist/index",
+    "start:build": "yarn build && yarn start"
+  },
+  "author": "Fatih EGE",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.33",
+    "@types/node": "^15.0.1",
+    "@types/validator": "^13.1.3",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0",
+    "sequelize": "5.20.0",
+    "sqlite3": "^5.0.2"
+  }
+}

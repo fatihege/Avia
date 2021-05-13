@@ -1,0 +1,14 @@
+# Folders
+.idea
+.yarn
+dist
+db
+
+# Files
+.env
+.pnp.js
+.prettierignore
+.prettierrc
+.yarnrc.yml
+log.txt
+yarn.lock
