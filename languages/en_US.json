@@ -455,7 +455,7 @@
             },
             "guessnumber": {
                 "description": "Starts the number guessing game.",
-                "usage": "[ upper limit ]",
+                "usage": "[ upper limit ]?",
                 "message": {
                     "limit.range": "The upper limit should be in the range of 10-100.",
                     "kept.number": "I kept a random number between **1-{0}** in my mind.\nFor guess — `-- [ number ]`\nTo exit the game — `-- end`",

@@ -455,7 +455,7 @@
             },
             "guessnumber": {
                 "description": "Sayı tahmin oyununu başlatır.",
-                "usage": "[ üst sınır ]",
+                "usage": "[ üst sınır ]?",
                 "message": {
                     "limit.range": "Üst sınır 10-100 aralığında olmalıdır.",
                     "kept.number": "Aklımdan **1-{0}** arasında rastgele bir sayı tuttum.\nTahmin etmek için — `-- [ sayı ]`\nOyundan çıkmak için — `-- end`",
