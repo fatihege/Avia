@@ -9,7 +9,7 @@ export const Bot = {
     INVITE_URL: 'https://discord.com/oauth2/authorize?client_id=838775980184436808&scope=bot&permissions=201583686',
     SUPPORT_URL: 'https://discord.gg/Xn3JRrbY8d',
     TOP_GG: 'https://top.gg',
-    GITHUB: 'https://github.com/fatihege'
+    GITHUB: 'https://github.com/fatihege/Avia'
 }
 
 export const Colors = {
