@@ -47,7 +47,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         categories.map((c) => {
             embed.addField(
                 `${Emoji.CATEGORY[c.code.replace('category.', '')] || ''} ${server.translate(`${c.code}.name`)}`,
-                `\`${c.commands.join('` `')}\``
+                `\`${c.commands.join('`**,** `')}\``
             );
         });
     } else {
