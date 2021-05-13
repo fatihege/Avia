@@ -5,7 +5,7 @@
 [![Discord](https://discordapp.com/api/guilds/815870678406397962/widget.png?style=shield)](https://discord.gg/Xn3JRrbY8d)
 [![Discord](https://img.shields.io/discord/815870678406397962?style=plastic)](https://discord.gg/Xn3JRrbY8d)
 
-## [Invite the Bot](https://discord.com/oauth2/authorize?client_id=838775980184436808&scope=bot&permissions=8)
+## [Invite the Bot](https://discord.com/oauth2/authorize?client_id=838775980184436808&scope=bot&permissions=201583686)
 
 ## Introduction
 
