@@ -74,10 +74,12 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     const snowflakes: string[] = message.content.match(/\d{17,18}/g);
 
     snowflakes.map((sf) => {
-        if (message.guild.roles.cache.get(sf)) roles.push(sf);
+        if (message.guild.roles.cache.get(sf) && !roles.includes(sf)) roles.push(sf);
     });
 
-    if (message.mentions.roles.size) message.mentions.roles.map((r) => roles.push(r.id));
+    if (message.mentions.roles.size) message.mentions.roles.map((r) => {
+        if (!roles.includes(r.id)) roles.push(r.id);
+    });
 
     if (roles.length < 1 || roles.length > 5) {
         embed = client.embed({

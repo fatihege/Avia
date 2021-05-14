@@ -22,13 +22,13 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
 
     protected setup(data: IServer) {
         this.id = data.id;
-        this.prefix = data.prefix;
-        this.language = data.language;
-        this.logChannelID = data.logChannelID;
-        this.welcomeChannelID = data.welcomeChannelID;
-        this.welcomeMessage = data.welcomeMessage;
-        this.autoroles = data.autoroles;
-        this.botroles = data.botroles;
+        this.prefix = data.prefix || this.prefix;
+        this.language = data.language || this.language;
+        this.logChannelID = data.logChannelID || this.logChannelID;
+        this.welcomeChannelID = data.welcomeChannelID || this.welcomeChannelID;
+        this.welcomeMessage = data.welcomeMessage || this.welcomeMessage;
+        this.autoroles = data.autoroles || this.autoroles;
+        this.botroles = data.botroles || this.botroles;
     }
 
     public async setPrefix(prefix: string): Promise<void> {

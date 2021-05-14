@@ -17,12 +17,19 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     let roles: Array<Role> = [];
 
     snowflakes.map((sf) => {
-        if (message.guild.members.cache.get(sf)) members.push(message.guild.members.cache.get(sf));
-        if (message.guild.roles.cache.get(sf)) roles.push(message.guild.roles.cache.get(sf));
+        let member = message.guild.members.cache.get(sf);
+        let role = message.guild.roles.cache.get(sf);
+
+        if (member && !members.includes(member)) members.push(member);
+        if (role && !roles.includes(role)) roles.push(role);
     });
 
-    if (message.mentions.members.size) message.mentions.members.map((m) => members.push(m));
-    if (message.mentions.roles.size) message.mentions.roles.map((r) => roles.push(r));
+    if (message.mentions.members.size) message.mentions.members.map((m) => {
+        if (!members.includes(m)) members.push(m);
+    });
+    if (message.mentions.roles.size) message.mentions.roles.map((r) => {
+        if (!roles.includes(r)) roles.push(r);
+    });
 
     if (!members.length || !roles.length) {
         embed = client.embed({
