@@ -28,7 +28,6 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     if (prefix === 'default') prefix = Bot.DEFAULT_PREFIX;
 
-
     try {
         await server.setPrefix(prefix);
 

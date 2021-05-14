@@ -1,6 +1,6 @@
 import { MessageEmbed, GuildMember, TextChannel } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
-import findSnowflake from '../../utility/FindSnowflake';
+import getTargetMember from '../../utility/GetTargetMember';
 
 export const aliases: string[] = ['ban', 'yasakla'];
 export const description: string = 'command.ban.description';
@@ -12,12 +12,11 @@ export const minArgs: number = 1;
 export const botPermissions: string[] = ['SEND_MESSAGES', 'BAN_MEMBERS']
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;
-    const snowflake: string = findSnowflake(message.content)[0];
+    const member: GuildMember = getTargetMember(message);
     const reason: string = (args.join(' '))
-        .replace(snowflake, '')
+        .replace(member.id, '')
         .replace(/<@!*>/, '')
         .trim();
-    const member: GuildMember = message.guild.members.cache.get(snowflake);
 
     if (!member) {
         embed = client.embed({

@@ -21,6 +21,9 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         if (message.guild.roles.cache.get(sf)) roles.push(message.guild.roles.cache.get(sf));
     });
 
+    if (message.mentions.members.size) message.mentions.members.map((m) => members.push(m));
+    if (message.mentions.roles.size) message.mentions.roles.map((r) => roles.push(r));
+
     if (!members.length || !roles.length) {
         embed = client.embed({
             color: colors.RED,

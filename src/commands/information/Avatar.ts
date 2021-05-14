@@ -12,6 +12,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     let embed: MessageEmbed;
 
     const target: GuildMember = getTargetMember(message);
+
     if (!target) return message.channel.send(server.translate('global.no.member'));
 
     embed = client.embed({
