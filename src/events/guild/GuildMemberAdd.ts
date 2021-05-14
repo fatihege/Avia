@@ -15,6 +15,17 @@ export const execute: ExecuteFunction = async (client, member: GuildMember) => {
     if (server.welcomeChannelID && server.welcomeMessage) {
         const channel = member.guild.channels.cache.get(server.welcomeChannelID) as TextChannel;
 
+        if (!channel) {
+            try {
+                await server.update({
+                    welcomeChannelID: null,
+                    welcomeMessage: null
+                });
+            } catch (err) {}
+
+            return;
+        }
+
         embed = client.embed({
             color: Colors.GREEN,
             thumbnail: member.user.displayAvatarURL(),
@@ -25,5 +36,29 @@ export const execute: ExecuteFunction = async (client, member: GuildMember) => {
         });
 
         channel.send(embed);
+    }
+
+    if (server.autoroles && server.autoroles.length && !member.user.bot) {
+        const roles: string[] = server.autoroles.split(/ +g/);
+
+        roles.map(async (r) => {
+            const role = await member.guild.roles.cache.get(r);
+
+            try {
+                if (role) await member.roles.add(role);
+            } catch (err) {}
+        });
+    }
+
+    if (server.botroles && server.botroles.length && member.user.bot) {
+        const roles: string[] = server.botroles.split(/ +g/);
+
+        roles.map(async (r) => {
+            const role = await member.guild.roles.cache.get(r);
+
+            try {
+                if (role) await member.roles.add(role);
+            } catch (err) {}
+        });
     }
 }

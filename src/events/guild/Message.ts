@@ -12,10 +12,8 @@ export const execute: ExecuteFunction = async (client, message: Message) => {
     let server = await client.servers.get(message.guild.id) as Server;
     if (!server) {
         server = await client.servers.create({
-            id: message.guild.id,
-            prefix: Bot.DEFAULT_PREFIX,
-            language: Language.DEFAULT_LANGUAGE
-        } as any);
+            id: message.guild.id
+        });
     }
 
     let prefix = server.prefix || Bot.DEFAULT_PREFIX;

@@ -91,7 +91,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     }
 
     try {
-        await server.setAutoroles(roles.join(' '));
+        await server.setBotroles(roles.join(' '));
 
         embed = client.embed({
             color: colors.GREEN,

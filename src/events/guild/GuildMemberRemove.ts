@@ -15,6 +15,17 @@ export const execute: ExecuteFunction = async (client, member: GuildMember) => {
     if (server.leaveChannelID && server.leaveMessage) {
         const channel = member.guild.channels.cache.get(server.leaveChannelID) as TextChannel;
 
+        if (!channel) {
+            try {
+                await server.update({
+                    leaveChannelID: null,
+                    leaveMessage: null
+                });
+            } catch (err) {}
+
+            return;
+        }
+
         embed = client.embed({
             color: Colors.RED,
             thumbnail: member.user.displayAvatarURL(),
