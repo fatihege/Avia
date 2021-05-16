@@ -13,7 +13,6 @@ export const execute: ExecuteFunction = async (client) => {
             let server = await ServerModel.findOne({ where: { id: g.id } });
             if (!server) {
                 await ServerModel.create({ id: g.id });
-                await client.servers.create({ id: g.id });
             }
         });
     }

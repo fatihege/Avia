@@ -27,6 +27,8 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
         this.logChannelID = data.logChannelID || this.logChannelID;
         this.welcomeChannelID = data.welcomeChannelID || this.welcomeChannelID;
         this.welcomeMessage = data.welcomeMessage || this.welcomeMessage;
+        this.leaveChannelID = data.leaveChannelID || this.leaveChannelID;
+        this.leaveMessage = data.leaveMessage || this.leaveMessage;
         this.autoroles = data.autoroles || this.autoroles;
         this.botroles = data.botroles || this.botroles;
     }
