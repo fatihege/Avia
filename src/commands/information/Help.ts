@@ -65,7 +65,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
                 {
                     name: server.translate('global.command.aliases'),
                     value: (!Array.isArray(selectedCommand.aliases) && typeof selectedCommand.aliases === 'string') ?
-                        selectedCommand.aliases : selectedCommand.aliases.join(', ')
+                        selectedCommand.aliases : selectedCommand.aliases.join('\n')
                 },
                 {
                     name: server.translate('global.command.description'),
