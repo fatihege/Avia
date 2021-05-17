@@ -7,7 +7,7 @@ export const aliases: string[] = ['leave', 'ayrilma'];
 export const description: string = 'command.leave.description'
 export const category: string = 'category.configuration';
 export const usage: string = 'command.leave.usage';
-export const examples: string[] = ['#leave Hey [userName] [userTag]!', '#leave Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet...', '\\_\\_reset\\_\\_'];
+export const examples: string[] = ['#leave Hey [userName] [userTag]!', '#leave Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet...', '__reset__'];
 export const permissions: string = 'MANAGE_GUILD';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;

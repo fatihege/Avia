@@ -5,7 +5,7 @@ export const aliases: string[] = ['autorole', 'otorol'];
 export const description: string = 'command.autorole.description'
 export const category: string = 'category.configuration';
 export const usage: string = 'command.autorole.usage';
-export const examples: string[] = ['@lorem', '@foo @bar @baz', '815875969713307679 817669756256518145', '\\_\\_reset\\_\\_'];
+export const examples: string[] = ['@lorem', '@foo @bar @baz', '815875969713307679 817669756256518145', '__reset__'];
 export const permissions: string = 'MANAGE_GUILD';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;

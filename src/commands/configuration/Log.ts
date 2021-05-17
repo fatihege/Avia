@@ -7,7 +7,7 @@ export const aliases: string[] = ['log', 'gunlukkaydi'];
 export const description: string = 'command.log.description'
 export const category: string = 'category.configuration';
 export const usage: string = 'command.log.usage';
-export const examples: string[] = ['#log', '\\_\\_reset\\_\\_'];
+export const examples: string[] = ['#log', '__reset__'];
 export const permissions: string = 'MANAGE_GUILD';
 export const authorOnly: boolean = true;
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {

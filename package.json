@@ -1,6 +1,6 @@
 {
   "name": "avia",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Strong, stable and fast Discord moderation and game bot.",
   "main": "./src/index.ts",
   "scripts": {
