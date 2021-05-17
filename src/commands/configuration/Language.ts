@@ -54,7 +54,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     if (!language) {
         embed = client.embed({
-            color: colors.GREEN,
+            color: colors.RED,
             author: {
                 name: message.author.tag,
                 image: message.author.displayAvatarURL()
