@@ -103,7 +103,7 @@
                     "voice": "Voice Channel",
                     "other": "Other Channels"
                 },
-                "verification.level": "Doğrulama Seviyesi"
+                "verification.level": "Verification Level"
             },
             "verification.level": {
                 "NONE": "None",
@@ -174,7 +174,7 @@
         },
         "event": {
             "message": {
-                "prefix.message": "The prefix on this server is `{0}`\nFor help with commands, use `{0} help`",
+                "prefix.message": "The prefix on this server is `{0}`\nFor help with commands, use `{0}help`",
                 "only.owner": "Only the owner of the server (<@!{1}>) can use the command `{0}`.",
                 "no.permission": {
                     "member": "You do not have sufficient privileges to use the command `{0}`.\nThe permissions you need to use this command:\n\n",
