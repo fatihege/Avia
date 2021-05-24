@@ -65,7 +65,8 @@
                 "draw": "Beraberlik",
                 "not": {
                     "in.game": "<@!{0}> bu oyunda yok.",
-                    "your.turn": "Senin sıran değil <@!{0}>"
+                    "your.turn": "Senin sıran değil <@!{0}>",
+                    "play.with.yourself": "Bu oyunu kendin ile oynayamazsın."
                 }
             },
             "command": {

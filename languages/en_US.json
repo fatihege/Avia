@@ -65,7 +65,8 @@
                 "draw": "Draw",
                 "not": {
                     "in.game": "<@!{0}> is not in this game.",
-                    "your.turn": "It's not your turn <@! {0}>"
+                    "your.turn": "It's not your turn <@!{0}>",
+                    "play.with.yourself": "You cannot play this game yourself."
                 }
             },
             "command": {
@@ -82,7 +83,7 @@
                 "member": "There is no such member.",
                 "member.or.role": "Please specify a member or role. These are not among the values you entered."
             },
-            "tag.user": "Lütfen bir üyeyi etiketleyin veya ID'sini girin.",
+            "tag.user": "Please tag a member or enter their ID.",
             "prefix": "Prefix",
             "roles": "Roles",
             "bots": "Bots",

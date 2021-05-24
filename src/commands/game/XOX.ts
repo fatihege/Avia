@@ -44,6 +44,19 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         return message.channel.send(embed);
     }
 
+    if (member.id == message.author.id) {
+        embed = client.embed({
+            color: colors.RED,
+            author: {
+                name: message.author.tag,
+                image: message.author.displayAvatarURL()
+            },
+            description: server.translate('global.game.not.play.with.yourself')
+        });
+
+        return message.channel.send(embed);
+    }
+
     let gamers = [message.author.id, member.id];
     let turn = 0;
     let table = [
