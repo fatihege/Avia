@@ -1,6 +1,6 @@
-import { MessageEmbed } from 'discord.js';
-import Command, { ExecuteFunction } from '../../interfaces/Command';
-import { Bot, Emoji } from '../../Constants';
+import {MessageEmbed} from 'discord.js';
+import Command, {ExecuteFunction} from '../../interfaces/Command';
+import {Bot, Emoji} from '../../Constants';
 
 export const aliases: string[] = ['help', 'yardim'];
 export const description: string = 'command.help.description'
@@ -80,7 +80,8 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
                     value: `\`${server.prefix || Bot.DEFAULT_PREFIX}${
                         (!Array.isArray(selectedCommand.aliases) && typeof selectedCommand.aliases === 'string') ?
                             selectedCommand.aliases :
-                            selectedCommand.aliases[0]} ${server.translate(selectedCommand.usage)
+                            selectedCommand.aliases[0]}${server.translate(selectedCommand.usage)
+                        ? ' ' + server.translate(selectedCommand.usage) : ''
                     }\``
                 }
             ],
