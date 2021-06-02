@@ -65,7 +65,6 @@
                 "draw": "Draw",
                 "not": {
                     "in.game": "<@!{0}> is not in this game.",
-                    "your.turn": "It's not your turn <@!{0}>",
                     "play.with.yourself": "You cannot play this game yourself."
                 }
             },

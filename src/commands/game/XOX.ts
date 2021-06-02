@@ -9,7 +9,7 @@ export const description: string = 'command.xox.description';
 export const usage: string = 'command.xox.usage';
 export const category: string = 'category.game';
 export const examples: string[] = ['@Avia', '838775980184436808'];
-export const botPermissions: string = 'ADD_REACTIONS';
+export const botPermissions: string[] = ['ADD_REACTIONS', 'MANAGE_MESSAGES'];
 export const minArgs: number = 1;
 export const maxArgs: number = 1;
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
@@ -113,14 +113,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
                     return;
                 }
 
-                if (user.id !== gamers[turn]) {
-                    embed = client.embed({
-                        color: colors.RED,
-                        description: server.translate('global.game.not.your.turn', user.id)
-                    });
-
-                    return client.tempMessage(message.channel as TextChannel, embed, 3000);
-                }
+                if (user.id !== gamers[turn]) return;
 
                 let targetNumber = emojis[`<:${reaction.emoji.name}:${reaction.emoji.id}>`];
                 let index: number;
