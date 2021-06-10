@@ -62,7 +62,11 @@ export default class Bot extends Client {
                 const event = await import(join(__dirname, CommandConstant.EVENTS_DIR, folder, file));
                 this.events.set(event.name, event);
 
-                this.on(event.name, event.execute.bind(null, this));
+		try {
+                    await this.on(event.name, event.execute.bind(null, this));
+		} catch (err) {
+		    this.logger.error(`${event.name} | ERROR: ${err.message}`);
+		}
             }
         }
     }
