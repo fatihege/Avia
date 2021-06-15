@@ -8,7 +8,7 @@ export const Bot = {
     AUTHOR_ID: '799520588485361675',
     INVITE_URL: 'https://discord.com/oauth2/authorize?client_id=838775980184436808&scope=bot&permissions=201583686',
     SUPPORT_URL: 'https://discord.gg/Xn3JRrbY8d',
-    TOP_GG: 'https://top.gg',
+    TOP_GG: 'https://top.gg/bot/838775980184436808',
     GITHUB: 'https://github.com/fatihege/Avia'
 }
 
