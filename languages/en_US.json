@@ -52,6 +52,7 @@
                 "ban": "This user is not already banned from the server.",
                 "log.not.already": "The log channel is not already selected.",
                 "welcome.not.already": "The welcome channel is not already selected.",
+                "leave.not.already": "The leave channel is not already selected.",
                 "autorole.not.already": "Automatic roles are not already selected.",
                 "botrole.not.already": "Auto bot roles are not already selected.",
                 "target.bot": "The specified person cannot be a bot.",

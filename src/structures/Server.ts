@@ -22,15 +22,15 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
 
     protected setup(data: IServer) {
         this.id = data.id;
-        this.prefix = data.prefix || this.prefix;
-        this.language = data.language || this.language;
-        this.logChannelID = data.logChannelID || this.logChannelID;
-        this.welcomeChannelID = data.welcomeChannelID || this.welcomeChannelID;
-        this.welcomeMessage = data.welcomeMessage || this.welcomeMessage;
-        this.leaveChannelID = data.leaveChannelID || this.leaveChannelID;
-        this.leaveMessage = data.leaveMessage || this.leaveMessage;
-        this.autoroles = data.autoroles || this.autoroles;
-        this.botroles = data.botroles || this.botroles;
+        this.prefix = data.prefix;
+        this.language = data.language;
+        this.logChannelID = data.logChannelID;
+        this.welcomeChannelID = data.welcomeChannelID;
+        this.welcomeMessage = data.welcomeMessage;
+        this.leaveChannelID = data.leaveChannelID;
+        this.leaveMessage = data.leaveMessage;
+        this.autoroles = data.autoroles;
+        this.botroles = data.botroles;
     }
 
     public async setPrefix(prefix: string): Promise<void> {
@@ -47,14 +47,14 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
         });
     }
 
-    public async setLogChannel(id: Snowflake | null): Promise<void> {
+    public async setLogChannel(id: Snowflake): Promise<void> {
         await this.update({
             id: this.id,
             logChannelID: id
         });
     }
 
-    public async setWelcome(id: Snowflake | null, message: string | null): Promise<void> {
+    public async setWelcome(id: Snowflake, message: string): Promise<void> {
         await this.update({
             id: this.id,
             welcomeChannelID: id,
@@ -62,7 +62,7 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
         });
     }
 
-    public async setLeave(id: Snowflake | null, message: string | null): Promise<void> {
+    public async setLeave(id: Snowflake, message: string): Promise<void> {
         await this.update({
             id: this.id,
             leaveChannelID: id,
@@ -70,14 +70,14 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
         });
     }
 
-    public async setAutoroles(roles: string | null) {
+    public async setAutoroles(roles: string) {
         await this.update({
             id: this.id,
             autoroles: roles
         });
     }
 
-    public async setBotroles(roles: string | null) {
+    public async setBotroles(roles: string) {
         await this.update({
             id: this.id,
             botroles: roles

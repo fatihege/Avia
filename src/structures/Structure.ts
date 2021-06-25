@@ -33,7 +33,7 @@ export default abstract class Structure<M, I> {
 
     public async update(data: I): Promise<void> {
         // @ts-ignore
-        const update = await this.model.update(data, {
+        await this.model.update(data, {
             where: {
                 id: this.id
             }

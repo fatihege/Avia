@@ -52,6 +52,7 @@
                 "ban": "Bu kullanıcı zaten sunucudan yasaklanmamış.",
                 "log.not.already": "Günlük kaydı kanalı zaten seçilmemiş.",
                 "welcome.not.already": "Hoşgeldiniz kanalı zaten seçilmemiş.",
+                "leave.not.already": "Üye ayrılma kanalı zaten seçilmemiş.",
                 "autorole.not.already": "Otomatik roller zaten seçilmemiş.",
                 "botrole.not.already": "Otomatik bot rolleri zaten seçilmemiş.",
                 "target.bot": "Belirtilen kişi bir bot olamaz.",
