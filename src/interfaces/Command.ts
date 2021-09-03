@@ -9,7 +9,7 @@ interface Category {
 }
 
 export interface ExecuteFunction {
-    (client: Bot, server: Server, message: Message, args: string[], colors: typeof Colors): Promise<void | any>
+    (client: Bot, server: Server, message: Message, args: string[], colors: typeof Colors, cmd?: string): Promise<void | any>
 }
 
 export default interface Command {

@@ -5,5 +5,6 @@ export default interface TimeUnits {
     day,
     hour,
     minute,
-    second
+    second,
+    toTimestamp?: Function;
 }

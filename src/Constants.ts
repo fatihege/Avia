@@ -23,12 +23,14 @@ export const Emoji = {
     ROUND_PUSHPIN: ':round_pushpin:',
     PARTYING_FACE: ':partying_face:',
     GEM: ':gem:',
+    MAG_RIGHT: ':mag_right:',
     OPEN_FILE_FOLDER: ':open_file_folder:',
     CATEGORY: {
         configuration: ':wrench:',
         game: ':video_game:',
         information: ':information_source:',
-        moderation: ':gear:'
+        moderation: ':gear:',
+        music: ':musical_note:'
     },
     XOX: {
         X: '<:_x:842014745292570626>',

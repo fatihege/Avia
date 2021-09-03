@@ -43,6 +43,15 @@ export default (
             if(result.second !== 0) arr.push(`${result.second} ${LanguageManager.translate(language, 'global.date.time.second')}`);
 
             return arr.slice(0, chunk).join(' ');
+        },
+        toTimestamp(showMinutesAlways: boolean = true): string {
+            let timestamp: string = result.second < 10 ? `0${result.second}` : result.second.toString();
+
+            if (result.minute !== 0 || showMinutesAlways) timestamp = `${(result.minute < 10 ? `0${result.minute}` : result.minute)}:${timestamp}`;
+            if (result.hour !== 0) timestamp = `${(result.hour < 10 ? `0${result.hour}` : result.hour)}:${timestamp}`;
+            if (result.day !== 0) timestamp = `${(result.day < 10 ? `0${result.day}` : result.day)}:${timestamp}`;
+
+            return timestamp;
         }
     });
 }

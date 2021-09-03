@@ -181,7 +181,7 @@ export const execute: ExecuteFunction = async (client, message: Message) => {
     }
 
     try {
-        await command.execute(client, server, message, args, Colors);
+        await command.execute(client, server, message, args, Colors, commandName);
     } catch (err) {
         console.error(`${commandName} | ERROR:`, err);
         message.channel.send(client.errorEmbed(server.language, message.guild, err));

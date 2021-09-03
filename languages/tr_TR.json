@@ -165,6 +165,10 @@
             "moderation": {
                 "code": "moderation",
                 "name": "Moderasyon"
+            },
+            "music": {
+                "code": "music",
+                "name": "Müzik"
             }
         },
         "error": {
@@ -457,6 +461,19 @@
             "guessnumber": {
                 "description": "Sayı tahmin oyununu başlatır.",
                 "usage": "[ üst sınır ]?",
+                "message": {
+                    "limit.range": "Üst sınır 10-100 aralığında olmalıdır.",
+                    "kept.number": "Aklımdan **1-{0}** arasında rastgele bir sayı tuttum.\nTahmin etmek için — `-- [ sayı ]`\nOyundan çıkmak için — `-- end`",
+                    "right": "Doğru bildiniz! Aklımdan tuttuğum sayı: **{0}**",
+                    "wrong": {
+                        "higher": "Aklımdan tuttuğum sayı yazdığınız sayıdan daha **yüksek**.",
+                        "smaller": "Aklımdan tuttuğum sayı yazdığınız sayıdan daha **küçük**."
+                    }
+                }
+            },
+            "play": {
+                "description": "Kullanıcının istediği müziği ses kanalında çalar.",
+                "usage": "[ sorgu metni ]*",
                 "message": {
                     "limit.range": "Üst sınır 10-100 aralığında olmalıdır.",
                     "kept.number": "Aklımdan **1-{0}** arasında rastgele bir sayı tuttum.\nTahmin etmek için — `-- [ sayı ]`\nOyundan çıkmak için — `-- end`",
