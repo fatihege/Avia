@@ -20,17 +20,20 @@ export const Colors = {
 }
 
 export const Emoji = {
-    ROUND_PUSHPIN: ':round_pushpin:',
-    PARTYING_FACE: ':partying_face:',
-    GEM: ':gem:',
-    MAG_RIGHT: ':mag_right:',
-    OPEN_FILE_FOLDER: ':open_file_folder:',
+    THUMBSUP: '👍',
+    PAUSED_BUTTON: '⏸',
+    ARROW_FORWARD: '▶',
+    ROUND_PUSHPIN: '📍',
+    PARTYING_FACE: '🥳',
+    GEM: '💎',
+    MAG_RIGHT: '🔎',
+    OPEN_FILE_FOLDER: '📂',
     CATEGORY: {
-        configuration: ':wrench:',
-        game: ':video_game:',
-        information: ':information_source:',
-        moderation: ':gear:',
-        music: ':musical_note:'
+        configuration: '🔧',
+        game: '🎮',
+        information: 'ℹ️',
+        moderation: '⚙️',
+        music: '🎵'
     },
     XOX: {
         X: '<:_x:842014745292570626>',

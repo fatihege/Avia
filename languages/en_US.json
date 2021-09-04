@@ -470,6 +470,32 @@
                         "smaller": "The number I keep in mind is **smaller** than the number you wrote."
                     }
                 }
+            },
+            "play": {
+                "description": "Plays the music requested by the user on the voice channel.",
+                "usage": "[ query ]*",
+                "message": {
+                }
+            },
+            "skip": {
+                "description": "Allows you to skip the currently playing song.",
+                "message": {
+                }
+            },
+            "disconnect": {
+                "description": "Disconnects from the voice channel.",
+                "message": {
+                }
+            },
+            "pause": {
+                "description": "Pauses the song playing on the voice channel.",
+                "message": {
+                }
+            },
+            "resume": {
+                "description": "Resumes the song that was stopped on the voice channel.",
+                "message": {
+                }
             }
         }
     }

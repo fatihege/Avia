@@ -60,7 +60,7 @@ export const execute: ExecuteFunction = async (client, message: Message) => {
                     image: message.author.displayAvatarURL()
                 },
                 description: server.translate('event.message.cooldown', commandName, timeLeft.toFixed(2))
-            }), 3000);
+            }), Math.max(timeLeft * 1000, 500));
         }
     }
 

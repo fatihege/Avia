@@ -2,7 +2,7 @@ import { MessageEmbed, TextChannel } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 import { Bot } from '../../Constants';
 
-export const aliases: string[] = ['prefix', 'onek'];
+export const aliases: string[] = ['prefix', 'önek'];
 export const description: string = 'command.prefix.description'
 export const category: string = 'category.configuration';
 export const usage: string = 'command.prefix.usage';

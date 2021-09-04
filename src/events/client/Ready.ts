@@ -1,5 +1,5 @@
 import wio from 'wio.db';
-import { TextChannel, VoiceChannel } from 'discord.js';
+import { TextChannel, VoiceChannel, Message } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Event';
 import { Bot, Colors, Emoji } from '../../Constants';
 import ServerModel from '../../models/Server';
@@ -42,17 +42,24 @@ export const execute: ExecuteFunction = async (client) => {
                 description: `${Emoji.MAG_RIGHT} Sıradaki şarkı bulunuyor...`,
             });
             let playing: boolean;
-            const infoMessage = await textChannel.send(embed);
+            let infoMessage: Message;
+            if (!serverQueue.paused) {
+                infoMessage = await textChannel.send(embed);
+            }
             try {
                 const connection = await voiceChannel.join();
                 setConnection(g.id, connection);
-                playing = await videoPlayer(client, infoMessage, g, serverQueue.songs[serverQueue.order]);
+                if (!serverQueue.paused) {
+                    playing = await videoPlayer(client, g, serverQueue.songs[serverQueue.order], serverQueue.pausedTime || 0);
+                }
             } catch (e) {
                 console.error(e);
             }
 
             if (playing) {
-                infoMessage.delete();
+                try {
+                    await infoMessage.delete();
+                } catch (e) {}
             }
         }
     });

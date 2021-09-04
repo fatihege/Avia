@@ -4,7 +4,7 @@ import dateFormat from '../../utility/DateFormat';
 import getTargetMember from '../../utility/GetTargetMember';
 import { Status } from '../../Constants';
 
-export const aliases: string[] = ['userinfo', 'user', 'kullanicibilgi', 'kullanici'];
+export const aliases: string[] = ['userinfo', 'user', 'kullanıcıbilgi', 'kullanıcı'];
 export const description: string = 'command.userinfo.description';
 export const usage: string = 'command.userinfo.usage';
 export const category: string = 'category.information';

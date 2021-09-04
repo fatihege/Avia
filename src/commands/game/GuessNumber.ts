@@ -1,7 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 
-export const aliases: string[] = ['guessnumber', 'sayitahmin'];
+export const aliases: string[] = ['guessnumber', 'sayıtahmin'];
 export const description: string = 'command.guessnumber.description';
 export const usage: string = 'command.guessnumber.usage';
 export const category: string = 'category.game';

@@ -2,7 +2,7 @@ import { MessageEmbed, GuildMember, Collection, Invite } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 import getTargetMember from '../../utility/GetTargetMember';
 
-export const aliases: string[] = ['invitecount', 'davetsayisi'];
+export const aliases: string[] = ['invitecount', 'davetsayısı'];
 export const description: string = 'command.invitecount.description';
 export const category: string = 'category.information';
 export const maxArgs: number = 1;

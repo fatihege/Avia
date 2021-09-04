@@ -2,7 +2,7 @@ import { MessageEmbed, GuildMember, Role, TextChannel } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 import sleep from '../../utility/Sleep';
 
-export const aliases: string[] = ['removerole', 'rolkaldir'];
+export const aliases: string[] = ['removerole', 'rolkaldır'];
 export const description: string = 'command.removerole.description';
 export const usage: string = 'command.removerole.usage';
 export const category: string = 'category.moderation';

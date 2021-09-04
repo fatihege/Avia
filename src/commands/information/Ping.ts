@@ -2,7 +2,7 @@ import { MessageEmbed } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 import resolveMS from '../../utility/ResolveMS'
 
-export const aliases: string[] = ['ping'];
+export const aliases: string[] = ['ping', 'gecikme'];
 export const description: string = 'command.ping.description';
 export const category: string = 'category.information';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {

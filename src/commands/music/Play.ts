@@ -1,14 +1,14 @@
 import wio from 'wio.db';
-import { MessageEmbed, Snowflake, TextChannel, VoiceChannel } from 'discord.js';
+import { MessageEmbed, TextChannel, VoiceChannel } from 'discord.js';
 import TimeConvert from '../../utility/TimeConvert';
 import videoPlayer from '../../utility/VideoPlayer';
+import videoFinder from '../../utility/VideoFinder';
 import { ExecuteFunction } from '../../interfaces/Command';
 import { Emoji } from '../../Constants';
 import ytdl from 'ytdl-core';
-import ytSearch from 'yt-search';
 import { setConnection } from '../../utility/VoiceConnection';
 
-export const aliases: string[] = ['play', 'oynat'];
+export const aliases: string[] = ['play', 'pl', 'oynat'];
 export const description: string = 'command.play.description'
 export const category: string = 'category.music';
 export const usage: string = 'command.play.usage';
@@ -20,6 +20,16 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     const voiceChannel: VoiceChannel = message.member.voice.channel;
     let song = null;
     let serverQueue = await wio.fetch(`queue_${message.guild.id}`);
+
+    if (serverQueue && serverQueue.voiceChannel != voiceChannel.id) {
+        embed = client.embed({
+            color: colors.RED,
+            description: 'Şu an başka bir kanalda müzik açık.'
+        });
+
+        message.channel.send(embed);
+        return;
+    }
 
     if (!voiceChannel) {
         embed = client.embed({
@@ -44,6 +54,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             result = await ytdl.getInfo(args[0]);
 
             song = {
+                id: serverQueue && serverQueue.songs.length ? serverQueue.songs[serverQueue.songs.length - 1].id + 1 : 0,
                 title: result.videoDetails.title,
                 url: result.videoDetails.video_url,
                 image: result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url,
@@ -61,6 +72,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         const result = await videoFinder(args.join(' '));
 
         song = {
+            id: serverQueue && serverQueue.songs.length ? serverQueue.songs[serverQueue.songs.length - 1].id + 1 : 0,
             title: result.title,
             url: result.url,
             image: result.image,
@@ -74,7 +86,9 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             textChannel: message.channel.id,
             playing: false,
             order: 0,
-            loop: true,
+            loop: false,
+            paused: false,
+            pausedTime: null,
             songs: [song]
         };
 
@@ -84,7 +98,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         try {
             const connection = await voiceChannel.join();
             setConnection(message.guild.id, connection);
-            playing = await videoPlayer(client, infoMessage, message.guild, queueConstructor.songs[0]);
+            playing = await videoPlayer(client, message.guild, queueConstructor.songs[0]);
 
             if (playing) {
                 infoMessage.delete();
@@ -101,15 +115,18 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             message.channel.send(embed);
         }
     } else {
+        let serverQueue = await wio.fetch(`queue_${message.guild.id}`);
         let queueConstructor = {
             voiceChannel: voiceChannel.id,
             textChannel: message.channel.id,
-            playing: !!(await wio.fetch(`queue_${message.guild.id}`)).playing,
-            order: (await wio.fetch(`queue_${message.guild.id}`)).order || 0,
-            loop: !!(await wio.fetch(`queue_${message.guild.id}`)).loop,
-            songs: ((await wio.fetch(`queue_${message.guild.id}`)) &&
-                (await wio.fetch(`queue_${message.guild.id}`)).songs.length) ? [
-                ...(await wio.fetch(`queue_${message.guild.id}`)).songs,
+            playing: !!serverQueue.playing,
+            order: serverQueue.order || 0,
+            loop: !!serverQueue.loop,
+            paused: serverQueue.paused,
+            pausedTime: serverQueue.pausedTime || null,
+            songs: (serverQueue &&
+                serverQueue.songs.length) ? [
+                ...serverQueue.songs,
                 song
             ] : [song]
         };
@@ -133,9 +150,4 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         infoMessage.edit(embed);
         return;
     }
-}
-
-const videoFinder = async (q) => {
-    const videoResult = await ytSearch(q);
-    return (videoResult.videos.length > 1) ? videoResult.videos[0] : null;
 }

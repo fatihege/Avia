@@ -21,16 +21,16 @@ export default class Server extends Structure<typeof ServerModel, IServer> {
     }
 
     protected setup(data: IServer) {
-        this.id = data.id;
-        this.prefix = data.prefix;
-        this.language = data.language;
-        this.logChannelID = data.logChannelID;
-        this.welcomeChannelID = data.welcomeChannelID;
-        this.welcomeMessage = data.welcomeMessage;
-        this.leaveChannelID = data.leaveChannelID;
-        this.leaveMessage = data.leaveMessage;
-        this.autoroles = data.autoroles;
-        this.botroles = data.botroles;
+        this.id = data.id || this.id;
+        this.prefix = data.prefix || this.prefix;
+        this.language = data.language || this.language;
+        this.logChannelID = data.logChannelID || this.logChannelID;
+        this.welcomeChannelID = data.welcomeChannelID || this.welcomeChannelID;
+        this.welcomeMessage = data.welcomeMessage || this.welcomeMessage;
+        this.leaveChannelID = data.leaveChannelID || this.leaveChannelID;
+        this.leaveMessage = data.leaveMessage || this.leaveMessage;
+        this.autoroles = data.autoroles || this.autoroles;
+        this.botroles = data.botroles || this.botroles;
     }
 
     public async setPrefix(prefix: string): Promise<void> {

@@ -3,7 +3,7 @@ import { ExecuteFunction } from '../../interfaces/Command';
 
 type Channel = TextChannel | DMChannel | NewsChannel;
 
-export const aliases: string[] = ['leave', 'ayrilma'];
+export const aliases: string[] = ['leave', 'ayrılma'];
 export const description: string = 'command.leave.description'
 export const category: string = 'category.configuration';
 export const usage: string = 'command.leave.usage';

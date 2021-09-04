@@ -2,7 +2,7 @@ import {MessageEmbed} from 'discord.js';
 import Command, {ExecuteFunction} from '../../interfaces/Command';
 import {Bot, Emoji} from '../../Constants';
 
-export const aliases: string[] = ['help', 'yardim'];
+export const aliases: string[] = ['help', 'yardım'];
 export const description: string = 'command.help.description'
 export const category: string = 'category.information';
 export const usage: string = 'command.help.usage';

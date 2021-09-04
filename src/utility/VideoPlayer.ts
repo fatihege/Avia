@@ -2,15 +2,14 @@ import wio from 'wio.db';
 import { MessageEmbed } from 'discord.js';
 import ytdl from 'ytdl-core';
 import { Colors } from '../Constants';
-import { getConnection } from './VoiceConnection';
+import { getConnection, setStreamDispatcher, getStreamDispatcher } from './VoiceConnection';
 
-const videoPlayer = async (client, infoMessage, guild, song) => {
+const videoPlayer = async (client, guild, song, seek: number = null) => {
     const connection = getConnection(guild.id);
     let songQueue = await wio.fetch(`queue_${guild.id}`);
     songQueue.playing = true;
     await wio.set(`queue_${guild.id}`, songQueue);
     const textChannel = await client.channels.fetch(songQueue.textChannel);
-    const voiceChannel = await client.channels.fetch(songQueue.voiceChannel);
 
     if (!song) {
         await wio.delete(`queue_${guild.id}`);
@@ -20,6 +19,14 @@ const videoPlayer = async (client, infoMessage, guild, song) => {
             description: `Kuyruktaki bütün şarkılar oynatıldı.`
         });
         textChannel.send(embed);
+        if (getStreamDispatcher(guild.id)) {
+            try {
+                const streamDispatcher = getStreamDispatcher(guild.id);
+                streamDispatcher.pause();
+            } catch (e) {
+                console.error(e)
+            }
+        }
         return false;
     }
 
@@ -38,23 +45,27 @@ const videoPlayer = async (client, infoMessage, guild, song) => {
         ]
     });
 
-    textChannel.send(embed);
+    if (!seek) {
+        textChannel.send(embed);
+    }
 
     const stream = ytdl(song.url, { filter: 'audioonly' });
-
-    connection.play(stream, { seek: 0, volume: 1 })
+    const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0, volume: 1 })
         .on('finish', async () => {
             songQueue = await wio.fetch(`queue_${guild.id}`);
             songQueue.playing = false;
+            songQueue.paused = false;
+            songQueue.pausedTime = null;
             songQueue.order = (songQueue.order + 1 >= songQueue.songs.length) ? 0 : songQueue.order + 1;
             if (!songQueue.loop) {
                 songQueue.songs.shift();
                 songQueue.order = songQueue.order - 1 < 0 ? 0 : songQueue.order - 1;
             }
-            console.log(songQueue.order);
             await wio.set(`queue_${guild.id}`, songQueue);
-            videoPlayer(client, infoMessage, guild, songQueue.songs[songQueue.order]);
+            videoPlayer(client, guild, songQueue.songs[songQueue.order]);
         });
+
+    setStreamDispatcher(guild.id, streamDispatcher);
 
     return true;
 }

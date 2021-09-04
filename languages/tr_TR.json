@@ -179,7 +179,7 @@
         },
         "event": {
             "message": {
-                "prefix.message": "Bu sunucudaki ön ek `{0}`\nKomutlar hakkında yardım için `{0}yardim`",
+                "prefix.message": "Bu sunucudaki ön ek `{0}`\nKomutlar hakkında yardım için `{0}yardım`",
                 "only.owner": "`{0}` komutunu sadece sunucunun sahibi (<@!{1}>) kullanabilir.",
                 "no.permission": {
                     "member": "`{0}` komutunu kullanmak için yeterli yetkiye sahip değilsin.\nBu komutu kullanman için gereken yetkiler:\n\n",
@@ -194,7 +194,7 @@
                 "description": "Yardım menüsünü açar.",
                 "usage": "[ komut adı ]?",
                 "message": {
-                    "for.more": "Daha fazla bilgi almak için — {0}yardim [ komut adı ]",
+                    "for.more": "Daha fazla bilgi almak için — {0}yardım [ komut adı ]",
                     "note": "`*` Sınırsız Argüman\n`?` Opsiyonel Argüman\n`{ }` Etiket\n`|` Argüman olarak içerebilir"
                 }
             },
@@ -475,13 +475,26 @@
                 "description": "Kullanıcının istediği müziği ses kanalında çalar.",
                 "usage": "[ sorgu metni ]*",
                 "message": {
-                    "limit.range": "Üst sınır 10-100 aralığında olmalıdır.",
-                    "kept.number": "Aklımdan **1-{0}** arasında rastgele bir sayı tuttum.\nTahmin etmek için — `-- [ sayı ]`\nOyundan çıkmak için — `-- end`",
-                    "right": "Doğru bildiniz! Aklımdan tuttuğum sayı: **{0}**",
-                    "wrong": {
-                        "higher": "Aklımdan tuttuğum sayı yazdığınız sayıdan daha **yüksek**.",
-                        "smaller": "Aklımdan tuttuğum sayı yazdığınız sayıdan daha **küçük**."
-                    }
+                }
+            },
+            "skip": {
+                "description": "O anda çalan şarkıyı atlamanızı sağlar.",
+                "message": {
+                }
+            },
+            "disconnect": {
+                "description": "Ses kanalından bağlantıyı keser.",
+                "message": {
+                }
+            },
+            "pause": {
+                "description": "Ses kanalında oynatılan şarkıyı durdurur.",
+                "message": {
+                }
+            },
+            "resume": {
+                "description": "Ses kanalında durdurulan şarkıyı devam ettirir.",
+                "message": {
                 }
             }
         }

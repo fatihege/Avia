@@ -2,7 +2,7 @@ import { MessageEmbed, TextChannel } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 import findSnowflake from '../../utility/FindSnowflake';
 
-export const aliases: string[] = ['unban', 'yasakkaldir'];
+export const aliases: string[] = ['unban', 'yasağıkaldır'];
 export const description: string = 'command.unban.description';
 export const usage: string = 'command.unban.usage';
 export const category: string = 'category.moderation';

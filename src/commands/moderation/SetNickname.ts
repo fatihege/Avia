@@ -2,7 +2,7 @@ import { MessageEmbed, TextChannel, GuildMember } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
 import getTargetMember from '../../utility/GetTargetMember';
 
-export const aliases: string[] = ['setnickname', 'setnick', 'kullaniciadi'];
+export const aliases: string[] = ['setnickname', 'setnick', 'kullanıcıadı'];
 export const description: string = 'command.setnickname.description';
 export const usage: string = 'command.setnickname.usage';
 export const category: string = 'category.moderation';
