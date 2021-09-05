@@ -1,13 +1,9 @@
 import wio from 'wio.db';
 import { MessageEmbed, TextChannel, VoiceChannel } from 'discord.js';
-import TimeConvert from '../../utility/TimeConvert';
-import videoPlayer from '../../utility/VideoPlayer';
-import videoFinder from '../../utility/VideoFinder';
 import { ExecuteFunction } from '../../interfaces/Command';
-import { getConnection, getStreamDispatcher, setConnection } from '../../utility/VoiceConnection';
+import { getConnection, getStreamDispatcher } from '../../utility/VoiceConnection';
 import escapeMarkdown from '../../utility/EscapeMarkdown';
 import timeConvert from '../../utility/TimeConvert';
-import streamFinish from "../../utility/StreamFinish";
 
 export const aliases: string[] = ['nowplaying', 'np', 'şimdioynayan', 'şo'];
 export const description: string = 'command.nowplaying.description';
