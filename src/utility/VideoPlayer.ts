@@ -6,12 +6,12 @@ import streamFinish from './StreamFinish';
 import escapeMarkdown from './EscapeMarkdown';
 import { getConnection, setStreamDispatcher, getStreamDispatcher, setConnection } from './VoiceConnection';
 
-const videoPlayer = async (client, guild, song, seek: number = null) => {
+const videoPlayer = async (client, guild, song, seek: number = null): Promise<boolean> => {
     const connection = getConnection(guild.id);
-    let songQueue = await wio.fetch(`queue_${guild.id}`);
-    songQueue.playing = true;
-    await wio.set(`queue_${guild.id}`, songQueue);
-    const textChannel = await client.channels.fetch(songQueue.textChannel);
+    let serverQueue = await wio.fetch(`queue_${guild.id}`);
+    serverQueue.playing = true;
+    await wio.set(`queue_${guild.id}`, serverQueue);
+    const textChannel = await client.channels.fetch(serverQueue.textChannel);
 
     if (!song) {
         await wio.delete(`queue_${guild.id}`);
@@ -45,6 +45,10 @@ const videoPlayer = async (client, guild, song, seek: number = null) => {
             {
                 name: 'Süre',
                 value: song.duration
+            },
+            {
+                name: 'Sıra',
+                value: serverQueue.order + 1
             }
         ]
     });
@@ -56,7 +60,7 @@ const videoPlayer = async (client, guild, song, seek: number = null) => {
     const stream = ytdl(song.url, { filter: 'audioonly' });
     const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0 })
         .on('finish', async () => {
-            await streamFinish(songQueue, client, guild);
+            await streamFinish(serverQueue, client, guild);
         });
 
     setStreamDispatcher(guild.id, streamDispatcher);

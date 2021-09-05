@@ -168,6 +168,10 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
                 {
                     name: 'Süre',
                     value: song.duration
+                },
+                {
+                    name: 'Sıra',
+                    value: queueConstructor.songs.length
                 }
             ]
         });

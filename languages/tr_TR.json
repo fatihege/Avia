@@ -545,6 +545,12 @@
                 "description": "Şarkı listesindeki şarkıları listeler.",
                 "message": {
                 }
+            },
+            "remove": {
+                "description": "Belirttiğiniz şarkıyı şarkı listesinden silmenizi sağlar.",
+                "usage": "[ şarkı numarası ]",
+                "message": {
+                }
             }
         }
     }

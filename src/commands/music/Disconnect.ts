@@ -48,8 +48,15 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             description: 'Ses kanalı bağlantısı kesildi.'
         });
 
-        return client.tempMessage(message.channel as TextChannel, embed, 10000);
+        message.channel.send(embed);
     } catch (e) {
         console.error(e)
+
+        embed = client.embed({
+            color: colors.RED,
+            description: 'Ses kanalı bağlantısı kesilirken bir sorun oluştu.'
+        });
+
+        message.channel.send(embed);
     }
 }

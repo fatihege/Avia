@@ -545,6 +545,12 @@
                 "description": "Lists the songs in the queue.",
                 "message": {
                 }
+            },
+            "remove": {
+                "description": "Allows you to delete the song you specified from the queue.",
+                "usage": "[ song number ]",
+                "message": {
+                }
             }
         }
     }

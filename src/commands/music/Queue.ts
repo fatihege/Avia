@@ -46,10 +46,10 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     });
     embed.setDescription('');
     serverQueue.songs.map((s, i) => {
-        embed.description += `**${i + 1})** [${escapeMarkdown(s.title)}](${s.url})\n`;
+        embed.description += serverQueue.order === i ? `**${i + 1}) [${escapeMarkdown(s.title)}](${s.url})**\n` :
+            `**${i + 1})** [${escapeMarkdown(s.title)}](${s.url})\n`;
     });
-    embed.description += `\n\nŞarkı listesi döngüsü: **
-    ${serverQueue.loop ? 'Açık' : 'Kapalı'}**\nŞarkı döngüsü: **${typeof serverQueue.loopSong === 'number' ? 'Açık' : 'Kapalı'}**`;
+    embed.description += `\nŞarkı listesi döngüsü: **${serverQueue.loop ? 'Açık' : 'Kapalı'}**\nŞarkı döngüsü: **${typeof serverQueue.loopSong === 'number' ? 'Açık' : 'Kapalı'}**`;
 
     message.channel.send(embed);
 }
