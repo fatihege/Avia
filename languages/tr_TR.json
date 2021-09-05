@@ -540,6 +540,11 @@
                 "usage": "[ süre (saniye) ]",
                 "message": {
                 }
+            },
+            "queue": {
+                "description": "Şarkı listesindeki şarkıları listeler.",
+                "message": {
+                }
             }
         }
     }

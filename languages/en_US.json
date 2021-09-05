@@ -540,6 +540,11 @@
                 "usage": "[ seek (second) ]",
                 "message": {
                 }
+            },
+            "queue": {
+                "description": "Lists the songs in the queue.",
+                "message": {
+                }
             }
         }
     }

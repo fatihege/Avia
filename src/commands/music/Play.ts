@@ -129,6 +129,16 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         }
     } else {
         let serverQueue = await wio.fetch(`queue_${message.guild.id}`);
+
+        if (serverQueue.songs.length + 1 > 15) {
+            embed = client.embed({
+                color: colors.RED,
+                description: 'Bir şarkı listesinde en fazla 15 şarkı olabilir.'
+            });
+
+            return client.tempMessage(message.channel as TextChannel, embed, 10000);
+        }
+
         let queueConstructor = {
             voiceChannel: voiceChannel.id,
             textChannel: message.channel.id,
@@ -161,7 +171,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
                 }
             ]
         });
-        infoMessage.edit(embed);
-        return;
+
+        return infoMessage.edit(embed);
     }
 }
