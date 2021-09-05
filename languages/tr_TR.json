@@ -502,6 +502,11 @@
                 "usage": "[ sorgu metni ]*",
                 "message": {
                 }
+            },
+            "stop": {
+                "description": "Oynatma listesini sonlandırmanızı sağlar.",
+                "message": {
+                }
             }
         }
     }

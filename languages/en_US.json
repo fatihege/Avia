@@ -502,6 +502,11 @@
                 "usage": "[ query ]*",
                 "message": {
                 }
+            },
+            "stop": {
+                "description": "Allows you to terminate the playlist.",
+                "message": {
+                }
             }
         }
     }
