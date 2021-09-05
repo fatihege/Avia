@@ -519,6 +519,11 @@
                 "usage": "[ volume ]?",
                 "message": {
                 }
+            },
+            "nowplaying": {
+                "description": "Shows the music currently playing.",
+                "message": {
+                }
             }
         }
     }

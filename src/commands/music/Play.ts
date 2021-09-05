@@ -7,6 +7,7 @@ import { ExecuteFunction } from '../../interfaces/Command';
 import { Emoji } from '../../Constants';
 import ytdl from 'ytdl-core';
 import { setConnection } from '../../utility/VoiceConnection';
+import escapeMarkdown from '../../utility/EscapeMarkdown';
 
 export const aliases: string[] = ['play', 'pl', 'oynat'];
 export const description: string = 'command.play.description';
@@ -139,7 +140,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             fields: [
                 {
                     name: 'Kuyruğa eklendi',
-                    value: `[${song.title}](${song.url})`
+                    value: `[${escapeMarkdown(song.title)}](${song.url})`
                 },
                 {
                     name: 'Süre',

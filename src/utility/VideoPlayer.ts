@@ -3,6 +3,7 @@ import { MessageEmbed } from 'discord.js';
 import ytdl from 'ytdl-core';
 import { Colors } from '../Constants';
 import streamFinish from './StreamFinish';
+import escapeMarkdown from './EscapeMarkdown';
 import { getConnection, setStreamDispatcher, getStreamDispatcher, setConnection } from './VoiceConnection';
 
 const videoPlayer = async (client, guild, song, seek: number = null) => {
@@ -39,7 +40,7 @@ const videoPlayer = async (client, guild, song, seek: number = null) => {
         fields: [
             {
                 name: 'Şu an oynatılıyor',
-                value: `[${song.title}](${song.url})`
+                value: `[${escapeMarkdown(song.title)}](${song.url})`
             },
             {
                 name: 'Süre',
@@ -53,7 +54,7 @@ const videoPlayer = async (client, guild, song, seek: number = null) => {
     }
 
     const stream = ytdl(song.url, { filter: 'audioonly' });
-    const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0, volume: 1 })
+    const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0 })
         .on('finish', async () => {
             await streamFinish(songQueue, client, guild);
         });

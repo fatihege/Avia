@@ -48,7 +48,9 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     await wio.delete(`queue_${message.guild.id}`);
     const streamDispatcher = getStreamDispatcher(message.guild.id);
-    streamDispatcher.pause(true);
+    try {
+        streamDispatcher.pause(true);
+    } catch (e) {}
     setStreamDispatcher(message.guild.id, null);
     setConnection(message.guild.id, null);
 }
