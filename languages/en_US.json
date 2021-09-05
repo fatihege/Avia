@@ -513,6 +513,12 @@
                 "usage": "[ query ]*",
                 "message": {
                 }
+            },
+            "volume": {
+                "description": "It allows you to set or see the volume of the song that played right now.",
+                "usage": "[ volume ]?",
+                "message": {
+                }
             }
         }
     }

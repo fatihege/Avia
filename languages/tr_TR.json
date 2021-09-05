@@ -513,6 +513,12 @@
                 "usage": "[ sorgu metni ]*",
                 "message": {
                 }
+            },
+            "volume": {
+                "description": "O an çalan şarkının ses seviyesini ayarlamanızı veya görmenizi sağlar.",
+                "usage": "[ ses seviyesi ]?",
+                "message": {
+                }
             }
         }
     }
