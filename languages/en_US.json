@@ -507,6 +507,12 @@
                 "description": "Allows you to terminate the playlist.",
                 "message": {
                 }
+            },
+            "lyrics": {
+                "description": "Shows the lyrics of the song you're searching for.",
+                "usage": "[ query ]*",
+                "message": {
+                }
             }
         }
     }

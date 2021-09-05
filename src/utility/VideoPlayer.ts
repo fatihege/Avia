@@ -3,7 +3,7 @@ import { MessageEmbed } from 'discord.js';
 import ytdl from 'ytdl-core';
 import { Colors } from '../Constants';
 import streamFinish from './StreamFinish';
-import { getConnection, setStreamDispatcher, getStreamDispatcher } from './VoiceConnection';
+import { getConnection, setStreamDispatcher, getStreamDispatcher, setConnection } from './VoiceConnection';
 
 const videoPlayer = async (client, guild, song, seek: number = null) => {
     const connection = getConnection(guild.id);
@@ -24,6 +24,8 @@ const videoPlayer = async (client, guild, song, seek: number = null) => {
             try {
                 const streamDispatcher = getStreamDispatcher(guild.id);
                 streamDispatcher.pause();
+                setStreamDispatcher(guild.id, null);
+                setConnection(guild.id, null);
             } catch (e) {
                 console.error(e)
             }

@@ -507,6 +507,12 @@
                 "description": "Oynatma listesini sonlandırmanızı sağlar.",
                 "message": {
                 }
+            },
+            "lyrics": {
+                "description": "Aradığınız şarkının sözlerini gösterir.",
+                "usage": "[ sorgu metni ]*",
+                "message": {
+                }
             }
         }
     }
