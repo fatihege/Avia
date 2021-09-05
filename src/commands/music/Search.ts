@@ -27,6 +27,9 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
     }
 
+    serverQueue.textChannel = message.channel.id;
+    await wio.set(`queue_${message.guild.id}`, serverQueue);
+
     embed = client.embed({
         color: colors.BLUE,
         description: `${Emoji.MAG_RIGHT} Arama yapılıyor...`

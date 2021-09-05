@@ -1,12 +1,12 @@
 import wio from 'wio.db';
 import { MessageEmbed, TextChannel, VoiceChannel } from 'discord.js';
 import { ExecuteFunction } from '../../interfaces/Command';
-import { Emoji } from '../../Constants';
-import { getConnection } from '../../utility/VoiceConnection';
+import { getConnection, getStreamDispatcher } from '../../utility/VoiceConnection';
 
-export const aliases: string[] = ['loop', 'l', 'döngü', '24/7'];
-export const description: string = 'command.loop.description';
+export const aliases: string[] = ['stop', 'dur'];
+export const description: string = 'command.stop.description';
 export const category: string = 'category.music';
+export const botPermissions: string[] = ['CONNECT', 'SPEAK'];
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;
     const voiceChannel: VoiceChannel = message.member.voice.channel;
@@ -39,26 +39,20 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
     }
 
-    const currentSong = serverQueue.songs[serverQueue.order];
-    const firstLength = serverQueue.songs.length;
-    let lastLength: number = firstLength;
-    serverQueue.loop = !serverQueue.loop;
+    embed = client.embed({
+        color: colors.GREEN,
+        description: 'Oynatma listesi tamamıyla sonlandı.'
+    });
 
-    if (!serverQueue.loop) {
-        serverQueue.songs = serverQueue.songs.filter((s) => s.id >= currentSong.id);
-    }
+    message.channel.send(embed);
 
-    lastLength = serverQueue.songs.length;
-    serverQueue.order = Math.abs(serverQueue.order - (firstLength - lastLength));
     serverQueue.textChannel = message.channel.id;
-    await wio.set(`queue_${message.guild.id}`, serverQueue);
-
-    try {
-        await message.react(Emoji.THUMBSUP);
-        embed = client.embed({
-            color: serverQueue.loop ? colors.GREEN : colors.RED,
-            description: serverQueue.loop ? 'Döngü açıldı.' : 'Döngü kapatıldı.'
-        });
-        message.channel.send(embed);
-    } catch (e) {}
+    serverQueue.order = 0;
+    serverQueue.playing = false;
+    serverQueue.paused = false;
+    serverQueue.pausedTime = null;
+    serverQueue.songs = [];
+    await wio.delete(`queue_${message.guild.id}`);
+    const streamDispatcher = getStreamDispatcher(message.guild.id);
+    streamDispatcher.pause(true);
 }
