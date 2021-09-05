@@ -2,6 +2,7 @@ import wio from 'wio.db';
 import { MessageEmbed } from 'discord.js';
 import ytdl from 'ytdl-core';
 import { Colors } from '../Constants';
+import streamFinish from './StreamFinish';
 import { getConnection, setStreamDispatcher, getStreamDispatcher } from './VoiceConnection';
 
 const videoPlayer = async (client, guild, song, seek: number = null) => {
@@ -52,17 +53,7 @@ const videoPlayer = async (client, guild, song, seek: number = null) => {
     const stream = ytdl(song.url, { filter: 'audioonly' });
     const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0, volume: 1 })
         .on('finish', async () => {
-            songQueue = await wio.fetch(`queue_${guild.id}`);
-            songQueue.playing = false;
-            songQueue.paused = false;
-            songQueue.pausedTime = null;
-            songQueue.order = (songQueue.order + 1 >= songQueue.songs.length) ? 0 : songQueue.order + 1;
-            if (!songQueue.loop) {
-                songQueue.songs.shift();
-                songQueue.order = songQueue.order - 1 < 0 ? 0 : songQueue.order - 1;
-            }
-            await wio.set(`queue_${guild.id}`, songQueue);
-            videoPlayer(client, guild, songQueue.songs[songQueue.order]);
+            await streamFinish(songQueue, client, guild);
         });
 
     setStreamDispatcher(guild.id, streamDispatcher);

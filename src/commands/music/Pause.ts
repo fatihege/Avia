@@ -5,7 +5,7 @@ import { getConnection, getStreamDispatcher } from '../../utility/VoiceConnectio
 import { Emoji } from '../../Constants';
 
 export const aliases: string[] = ['pause', 'pa', 'durdur', 'dur'];
-export const description: string = 'command.pause.description'
+export const description: string = 'command.pause.description';
 export const category: string = 'category.music';
 export const botPermissions: string[] = ['CONNECT', 'SPEAK'];
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {

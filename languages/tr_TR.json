@@ -496,6 +496,12 @@
                 "description": "Ses kanalında durdurulan şarkıyı devam ettirir.",
                 "message": {
                 }
+            },
+            "search": {
+                "description": "YouTube'da arama yapmanızı sağlar.",
+                "usage": "[ sorgu metni ]*",
+                "message": {
+                }
             }
         }
     }

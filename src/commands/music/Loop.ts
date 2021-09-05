@@ -5,7 +5,7 @@ import { Emoji } from '../../Constants';
 import { getConnection } from '../../utility/VoiceConnection';
 
 export const aliases: string[] = ['loop', 'l', 'döngü', '24/7'];
-export const description: string = 'command.loop.description'
+export const description: string = 'command.loop.description';
 export const category: string = 'category.music';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;

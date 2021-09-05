@@ -6,7 +6,7 @@ import { Emoji } from '../../Constants';
 import videoPlayer from '../../utility/VideoPlayer';
 
 export const aliases: string[] = ['resume', 'r', 'devamet', 'de'];
-export const description: string = 'command.resume.description'
+export const description: string = 'command.resume.description';
 export const category: string = 'category.music';
 export const botPermissions: string[] = ['CONNECT', 'SPEAK'];
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {

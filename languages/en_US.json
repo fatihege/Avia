@@ -496,6 +496,12 @@
                 "description": "Resumes the song that was stopped on the voice channel.",
                 "message": {
                 }
+            },
+            "search": {
+                "description": "Allows you to search YouTube.",
+                "usage": "[ query ]*",
+                "message": {
+                }
             }
         }
     }

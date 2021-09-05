@@ -4,7 +4,7 @@ import { ExecuteFunction } from '../../interfaces/Command';
 import { getConnection, setConnection } from '../../utility/VoiceConnection';
 
 export const aliases: string[] = ['disconnect', 'bağlantıyıkes'];
-export const description: string = 'command.disconnect.description'
+export const description: string = 'command.disconnect.description';
 export const category: string = 'category.music';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;

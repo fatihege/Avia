@@ -9,7 +9,7 @@ import ytdl from 'ytdl-core';
 import { setConnection } from '../../utility/VoiceConnection';
 
 export const aliases: string[] = ['play', 'pl', 'oynat'];
-export const description: string = 'command.play.description'
+export const description: string = 'command.play.description';
 export const category: string = 'category.music';
 export const usage: string = 'command.play.usage';
 export const examples: string[] = ['https://www.youtube.com/watch?v=lorem', 'Lorem ipsum'];
@@ -69,7 +69,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             infoMessage.edit(embed);
         }
     } else {
-        const result = await videoFinder(args.join(' '));
+        const result: any = await videoFinder(args.join(' '));
 
         song = {
             id: serverQueue && serverQueue.songs.length ? serverQueue.songs[serverQueue.songs.length - 1].id + 1 : 0,
