@@ -515,13 +515,19 @@
                 }
             },
             "volume": {
-                "description": "O an oynatılan şarkının ses seviyesini ayarlamanızı veya görmenizi sağlar.",
+                "description": "Müziğin ses seviyesini ayarlamanızı veya görmenizi sağlar.",
                 "usage": "[ ses seviyesi ]?",
                 "message": {
                 }
             },
             "nowplaying": {
                 "description": "O an oynatılan müziği gösterir.",
+                "message": {
+                }
+            },
+            "seek": {
+                "description": "Müziğin süresini ayarlamanızı sağlar.",
+                "usage": "[ süre (saniye) ]",
                 "message": {
                 }
             }

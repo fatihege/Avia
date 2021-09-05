@@ -515,13 +515,19 @@
                 }
             },
             "volume": {
-                "description": "It allows you to set or see the volume of the song that played right now.",
+                "description": "Allows you to set or see the volume of music.",
                 "usage": "[ volume ]?",
                 "message": {
                 }
             },
             "nowplaying": {
                 "description": "Shows the music currently playing.",
+                "message": {
+                }
+            },
+            "seek": {
+                "description": "Allows you to set the duration of music.",
+                "usage": "[ seek (second) ]",
                 "message": {
                 }
             }
