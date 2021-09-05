@@ -39,25 +39,15 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
     }
 
-    const currentSong = serverQueue.songs[serverQueue.order];
-    const firstLength = serverQueue.songs.length;
-    let lastLength: number = firstLength;
-    serverQueue.loop = !serverQueue.loop;
-
-    if (!serverQueue.loop) {
-        serverQueue.songs = serverQueue.songs.filter((s) => s.id >= currentSong.id);
-    }
-
-    lastLength = serverQueue.songs.length;
-    serverQueue.order = Math.abs(serverQueue.order - (firstLength - lastLength));
+    serverQueue.loopSong = typeof serverQueue.loopSong === 'number' ? null : serverQueue.order;
     serverQueue.textChannel = message.channel.id;
     await wio.set(`queue_${message.guild.id}`, serverQueue);
 
     try {
         await message.react(Emoji.THUMBSUP);
         embed = client.embed({
-            color: serverQueue.loop ? colors.GREEN : colors.RED,
-            description: serverQueue.loop ? 'Döngü açıldı.' : 'Döngü kapatıldı.'
+            color: typeof serverQueue.loopSong === 'number' ? colors.GREEN : colors.RED,
+            description: typeof serverQueue.loopSong === 'number' ? 'Şarkı döngüsü açıldı.' : 'Şarkı döngüsü kapatıldı.'
         });
         message.channel.send(embed);
     } catch (e) {}

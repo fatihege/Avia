@@ -497,6 +497,16 @@
                 "message": {
                 }
             },
+            "loopqueue": {
+                "description": "Şarkı listesini döngüye sokar.",
+                "message": {
+                }
+            },
+            "loop": {
+                "description": "Oynatılan şarkıyı döngüye sokar.",
+                "message": {
+                }
+            },
             "search": {
                 "description": "YouTube'da arama yapmanızı sağlar.",
                 "usage": "[ sorgu metni ]*",

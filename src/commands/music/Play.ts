@@ -70,16 +70,27 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             infoMessage.edit(embed);
         }
     } else {
-        const result: any = await videoFinder(args.join(' '));
+        try {
+            const result: any = await videoFinder(args.join(' '));
 
-        song = {
-            id: serverQueue && serverQueue.songs.length ? serverQueue.songs[serverQueue.songs.length - 1].id + 1 : 0,
-            title: result.title,
-            url: result.url,
-            image: result.image,
-            duration: result.duration.timestamp
-        };
+            song = {
+                id: serverQueue && serverQueue.songs.length ? serverQueue.songs[serverQueue.songs.length - 1].id + 1 : 0,
+                title: result.title,
+                url: result.url,
+                image: result.image,
+                duration: result.duration.timestamp
+            };
+        } catch (e) {
+            embed = client.embed({
+                color: colors.RED,
+                description: `Herhangi bir sonuç bulunamadı.`
+            });
+
+            infoMessage.edit(embed);
+        }
     }
+
+    if (!song) return;
 
     if (!serverQueue) {
         let queueConstructor = {
@@ -87,6 +98,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             textChannel: message.channel.id,
             playing: false,
             order: 0,
+            loopSong: null,
             loop: false,
             paused: false,
             pausedTime: null,
@@ -122,6 +134,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             textChannel: message.channel.id,
             playing: !!serverQueue.playing,
             order: serverQueue.order || 0,
+            loopSong: serverQueue.loopSong || null,
             loop: !!serverQueue.loop,
             paused: serverQueue.paused,
             pausedTime: serverQueue.pausedTime || null,

@@ -497,6 +497,16 @@
                 "message": {
                 }
             },
+            "loopqueue": {
+                "description": "Puts the queue into a loop.",
+                "message": {
+                }
+            },
+            "loop": {
+                "description": "Puts the playing song into a loop.",
+                "message": {
+                }
+            },
             "search": {
                 "description": "Allows you to search YouTube.",
                 "usage": "[ query ]*",
