@@ -48,7 +48,7 @@ const videoPlayer = async (client, guild, language, song, seek: number = null): 
                 value: song.duration
             },
             {
-                name: LanguageManager.translate(language, 'global.music.now.order'),
+                name: LanguageManager.translate(language, 'global.music.order'),
                 value: serverQueue.order + 1
             }
         ]
