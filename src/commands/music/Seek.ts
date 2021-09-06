@@ -21,7 +21,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -30,7 +30,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -39,7 +39,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -50,7 +50,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (isNaN(seek)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir sayı girin.'
+            description: server.translate('global.enter.number')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -59,7 +59,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (seek < 0) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Süre en az 0 olmalıdır.'
+            description: server.translate('command.seek.message.min')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -78,7 +78,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.BLUE,
-        description: `Müzik şu süreden devam ediyor: ${timeConvert(server.language, seek * 1000).toTimestamp()}`
+        description: server.translate('command.seek.message.continues.from', timeConvert(server.language, seek * 1000).toTimestamp())
     });
 
     message.channel.send(embed);

@@ -25,7 +25,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (serverQueue && serverQueue.voiceChannel != voiceChannel.id) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Şu an başka bir kanalda müzik açık.'
+            description: server.translate('global.music.stream.on.another.channel')
         });
 
         message.channel.send(embed);
@@ -35,7 +35,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına girin.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -43,7 +43,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.BLUE,
-        description: `${Emoji.MAG_RIGHT} Arama yapılıyor...`
+        description: `${Emoji.MAG_RIGHT} ${server.translate('global.music.searching')}`
     });
 
     const infoMessage = await message.channel.send(embed);
@@ -64,7 +64,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         } catch (e) {
             embed = client.embed({
                 color: colors.RED,
-                description: `Herhangi bir sonuç bulunamadı.`
+                description: server.translate('global.music.no.results.found')
             });
 
             infoMessage.edit(embed);
@@ -83,7 +83,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         } catch (e) {
             embed = client.embed({
                 color: colors.RED,
-                description: `Herhangi bir sonuç bulunamadı.`
+                description: server.translate('global.music.no.results.found')
             });
 
             infoMessage.edit(embed);
@@ -122,7 +122,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             await wio.delete(`queue_${message.guild.id}`);
             embed = client.embed({
                 color: colors.RED,
-                description: 'Ses kanalına bağlanırken bir sorun oluştu.'
+                description: server.translate('global.music.connection.problem')
             });
 
             message.channel.send(embed);
@@ -133,7 +133,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         if (serverQueue.songs.length + 1 > 15) {
             embed = client.embed({
                 color: colors.RED,
-                description: 'Bir şarkı listesinde en fazla 15 şarkı olabilir.'
+                description: server.translate('command.play.message.max.queue.length')
             });
 
             return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -162,15 +162,15 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             thumbnail: song.image,
             fields: [
                 {
-                    name: 'Kuyruğa eklendi',
+                    name: server.translate('global.music.added.to.queue'),
                     value: `[${escapeMarkdown(song.title)}](${song.url})`
                 },
                 {
-                    name: 'Süre',
+                    name: server.translate('global.music.duration'),
                     value: song.duration
                 },
                 {
-                    name: 'Sıra',
+                    name: server.translate('global.music.order'),
                     value: queueConstructor.songs.length
                 }
             ]

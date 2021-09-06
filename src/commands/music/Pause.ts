@@ -17,7 +17,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id) || !streamDispatcher) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -26,7 +26,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -35,7 +35,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -44,7 +44,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (serverQueue.paused) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Müzik zaten durdurulmuş.'
+            description: server.translate('command.pause.message.already.paused')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -58,7 +58,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.GREEN,
-        description: `${Emoji.PAUSED_BUTTON} Müzik durduruldu.`
+        description: `${Emoji.PAUSED_BUTTON} ${server.translate('command.pause.message.paused')}`
     });
 
     message.channel.send(embed);

@@ -17,7 +17,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -26,7 +26,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -35,7 +35,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -52,15 +52,15 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         thumbnail: song.image,
         fields: [
             {
-                name: 'Şu an oynatılıyor',
+                name: server.translate('command.nowplaying.message.now.playing'),
                 value: `[${escapeMarkdown(song.title)}](${song.url})`
             },
             {
-                name: 'Toplam süre',
+                name: server.translate('global.music.total.duration'),
                 value: song.duration
             },
             {
-                name: 'Şu anki süre',
+                name: server.translate('command.nowplaying.message.current.time'),
                 value: timeConvert(server.language, serverQueue.paused ? (serverQueue.pausedTime ? serverQueue.pausedTime : 0) : (streamDispatcher.streamTime + (serverQueue.pausedTime ? serverQueue.pausedTime : 0))).toTimestamp()
             }
         ]

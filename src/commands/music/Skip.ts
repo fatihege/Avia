@@ -8,7 +8,7 @@ import { Emoji } from '../../Constants';
 export const aliases: string[] = ['skip', 's', 'atla', 'a'];
 export const description: string = 'command.skip.description';
 export const category: string = 'category.music';
-export const botPermissions: string[] = ['CONNECT', 'SPEAK'];
+export const botPermissions: string[] = ['CONNECT', 'SPEAK', 'ADD_REACTIONS'];
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;
     const voiceChannel: VoiceChannel = message.member.voice.channel;
@@ -17,7 +17,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -26,7 +26,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -35,7 +35,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);

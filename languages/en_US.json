@@ -69,6 +69,21 @@
                     "play.with.yourself": "You cannot play this game yourself."
                 }
             },
+            "music": {
+                "stream.on.another.channel": "Streaming on another channel now.",
+                "connect.a.channel": "Please connect a voice channel.",
+                "searching": "Searching...",
+                "no.results.found": "No results found.",
+                "connection.problem": "There was a problem connecting to the voice channel.",
+                "added.to.queue": "Added to the queue",
+                "duration": "Duration",
+                "total.duration": "Total duration",
+                "order": "Order",
+                "no.queue": "No queue found for this server.",
+                "no.music.playing.on.your.channel": "No music playing on your channel.",
+                "no.voice.connection": "No voice channel connection.",
+                "disconnected": "Voice channel disconnected."
+            },
             "command": {
                 "aliases": "Aliases",
                 "description": "Description",
@@ -77,6 +92,9 @@
                 "examples": "Example Uses",
                 "permissions": "Required Permissions"
             },
+            "opened": "Opened",
+            "closed": "Closed",
+            "enter.number": "Please enter a number.",
             "empty": "Empty",
             "checking": "Checking...",
             "no": {
@@ -475,81 +493,109 @@
                 "description": "Plays the music requested by the user on the voice channel.",
                 "usage": "[ query ]*",
                 "message": {
+                    "max.queue.length": "A queue can have up to 15 songs."
                 }
             },
             "skip": {
-                "description": "Allows you to skip the currently playing song.",
-                "message": {
-                }
+                "description": "Allows you to skip the currently playing song."
             },
             "disconnect": {
                 "description": "Disconnects from the voice channel.",
                 "message": {
+                    "disconnection.problem": "There was a problem disconnecting from the voice channel."
                 }
             },
             "pause": {
                 "description": "Pauses the song playing on the voice channel.",
                 "message": {
+                    "already.paused": "The music has already been paused.",
+                    "paused": "Music paused."
                 }
             },
             "resume": {
                 "description": "Resumes the song that was stopped on the voice channel.",
                 "message": {
+                    "not.paused": "The music hasn't been paused yet.",
+                    "continues": "The music continues..."
                 }
             },
             "loopqueue": {
                 "description": "Puts the queue into a loop.",
                 "message": {
+                    "opened": "The queue loop opened.",
+                    "closed": "The queue loop closed."
                 }
             },
             "loop": {
                 "description": "Puts the playing song into a loop.",
                 "message": {
+                    "opened": "The song loop opened.",
+                    "closed": "The song loop closed."
                 }
             },
             "search": {
                 "description": "Allows you to search YouTube.",
                 "usage": "[ query ]*",
                 "message": {
+                    "no.results.found": "No results found for **{0}**.",
+                    "listing": "{0} results listed"
                 }
             },
             "stop": {
                 "description": "Allows you to terminate the playlist.",
                 "message": {
+                    "stopped": "The queue is completely stopped."
                 }
             },
             "lyrics": {
                 "description": "Shows the lyrics of the song you're searching for.",
                 "usage": "[ query ]*",
                 "message": {
+                    "searching": "Searching for lyrics...",
+                    "for.more": "For more: <{0}>"
                 }
             },
             "volume": {
                 "description": "Allows you to set or see the volume of music.",
                 "usage": "[ volume ]?",
                 "message": {
+                    "musics.volume": "Volume of music: **%{0}**",
+                    "range": "Volume should be in the range of 0-200.",
+                    "set": "Volume is set to **%{0}**.",
+                    "error": "There was a problem setting the volume."
                 }
             },
             "nowplaying": {
                 "description": "Shows the music currently playing.",
                 "message": {
+                    "now.playing": "Now playing",
+                    "current.time": "Current time"
                 }
             },
             "seek": {
                 "description": "Allows you to set the duration of music.",
                 "usage": "[ seek (second) ]",
                 "message": {
+                    "min": "Duration must be at least 0 seconds.",
+                    "continues.from": "Music continues from this duration: **{0}**"
                 }
             },
             "queue": {
                 "description": "Lists the songs in the queue.",
                 "message": {
+                    "music.list": "Music List - {0} musics",
+                    "details": [
+                        "Queue loop: **{0}**",
+                        "Song loop: **{0}**"
+                    ]
                 }
             },
             "remove": {
                 "description": "Allows you to delete the song you specified from the queue.",
                 "usage": "[ song number ]",
                 "message": {
+                    "range": "Song number must be in the range of 1-15.",
+                    "removed": "**{0}** removed from playlist."
                 }
             }
         }

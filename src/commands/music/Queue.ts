@@ -16,7 +16,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -25,7 +25,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -34,7 +34,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -42,14 +42,18 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.BLUE,
-        title: `Şarkı Listesi - ${serverQueue.songs.length} şarkı`,
+        title: server.translate('command.queue.message.music.list', serverQueue.songs.length),
     });
     embed.setDescription('');
     serverQueue.songs.map((s, i) => {
         embed.description += serverQueue.order === i ? `**${i + 1}) [${escapeMarkdown(s.title)}](${s.url})**\n` :
             `**${i + 1})** [${escapeMarkdown(s.title)}](${s.url})\n`;
     });
-    embed.description += `\nŞarkı listesi döngüsü: **${serverQueue.loop ? 'Açık' : 'Kapalı'}**\nŞarkı döngüsü: **${typeof serverQueue.loopSong === 'number' ? 'Açık' : 'Kapalı'}**`;
+    const queueLoopStatus = serverQueue.loop ? server.translate('global.opened') :
+        server.translate('global.closed');
+    const songLoopStatus = typeof serverQueue.loopSong === 'number' ? server.translate('global.opened') :
+        server.translate('global.closed');
+    embed.description += `\n${server.translate('command.queue.message.details', queueLoopStatus, songLoopStatus)}`;
 
     message.channel.send(embed);
 }

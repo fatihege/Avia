@@ -15,7 +15,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -24,7 +24,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -33,7 +33,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -47,7 +47,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         await message.react(Emoji.THUMBSUP);
         embed = client.embed({
             color: typeof serverQueue.loopSong === 'number' ? colors.GREEN : colors.RED,
-            description: typeof serverQueue.loopSong === 'number' ? 'Şarkı döngüsü açıldı.' : 'Şarkı döngüsü kapatıldı.'
+            description: typeof serverQueue.loopSong === 'number' ? server.translate('command.loop.message.opened') : server.translate('command.loop.message.closed')
         });
         message.channel.send(embed);
     } catch (e) {}

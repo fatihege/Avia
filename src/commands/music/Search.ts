@@ -21,7 +21,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -32,7 +32,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.BLUE,
-        description: `${Emoji.MAG_RIGHT} Arama yapılıyor...`
+        description: `${Emoji.MAG_RIGHT} ${server.translate('global.music.searching')}`
     });
 
     const infoMessage = await message.channel.send(embed);
@@ -43,7 +43,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!results || !results.length) {
         embed = client.embed({
             color: colors.RED,
-            description: `**${escapeMarkdown(query)}** ile ilgili bir sonuç bulunamadı.`
+            description: server.translate('command.search.message.no.results.found', escapeMarkdown(query))
         });
 
         return infoMessage.edit(embed);
@@ -51,7 +51,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.GREEN,
-        title: `${results.length} sonuç listeleniyor`,
+        title: server.translate('command.search.message.listing', results.length),
     });
 
     embed.setDescription('');

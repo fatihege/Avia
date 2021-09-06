@@ -14,7 +14,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!getConnection(message.guild.id) || !serverQueue) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Herhangi bir ses kanalı bağlantısı yok.'
+            description: server.translate('global.music.no.voice.connection')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -23,7 +23,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -32,7 +32,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (serverQueue.voiceChannel != voiceChannel.id) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -45,7 +45,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         setConnection(message.guild.id, null);
         embed = client.embed({
             color: colors.GREEN,
-            description: 'Ses kanalı bağlantısı kesildi.'
+            description: server.translate('global.music.disconnected')
         });
 
         message.channel.send(embed);
@@ -54,7 +54,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
         embed = client.embed({
             color: colors.RED,
-            description: 'Ses kanalı bağlantısı kesilirken bir sorun oluştu.'
+            description: server.translate('command.disconnect.message.disconnection.problem')
         });
 
         message.channel.send(embed);

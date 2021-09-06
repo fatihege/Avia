@@ -15,7 +15,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     embed = client.embed({
         color: colors.BLUE,
-        description: `${Emoji.MAG_RIGHT} Şarkı sözleri aranıyor...`
+        description: `${Emoji.MAG_RIGHT} ${server.translate('command.lyrics.message.searching')}`
     });
     const infoMessage = await message.channel.send(embed);
     const response = await fetch(`https://genius-api.fatihege.repl.co/search?q=${encodeURI(args.join(' '))}`);
@@ -25,7 +25,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         color: colors.DEFAULT,
         thumbnail: data.thumbnailUrl,
         title: `${escapeMarkdown(data.title)}`,
-        description: `${data.lyrics}\n\nDaha fazlası için: <${data.url}>`,
+        description: `${data.lyrics}\n\n${server.translate('command.lyrics.message.for.more', data.url)}`,
     });
 
     infoMessage.edit(embed);

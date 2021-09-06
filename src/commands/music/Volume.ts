@@ -19,7 +19,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!serverQueue || !serverQueue.songs.length || !getConnection(message.guild.id)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Bu sunucuya ait bir oynatma listesi bulunamadı.'
+            description: server.translate('global.music.no.queue')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -28,7 +28,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir ses kanalına bağlanın.'
+            description: server.translate('global.music.connect.a.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -37,7 +37,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (voiceChannel.id != serverQueue.voiceChannel) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Sizin bulunduğunuz kanalda müzik oynatılmıyor.'
+            description: server.translate('global.music.no.music.playing.on.your.channel')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -51,7 +51,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (!args[0]) {
         embed = client.embed({
             color: colors.BLUE,
-            description: `Müziğin ses seviyesi: **%${streamDispatcher.volume * 100}**`
+            description: server.translate('command.volume.message.musics.volume', streamDispatcher.volume * 100)
         });
 
         return message.channel.send(embed);
@@ -62,7 +62,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (isNaN(volume)) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Lütfen bir sayı girin.'
+            description: server.translate('global.enter.number')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -71,7 +71,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     if (volume < 0 || volume > 200) {
         embed = client.embed({
             color: colors.RED,
-            description: 'Ses seviyesi 0-200 aralığında olmalıdır.'
+            description: server.translate('command.volume.message.range')
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
@@ -82,14 +82,14 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
         embed = client.embed({
             color: colors.BLUE,
-            description: `Ses seviyesi **%${volume}** olarak ayarlandı.`
+            description: server.translate('command.volume.message.set', volume)
         });
 
         message.channel.send(embed);
     } catch (e) {
         embed = client.embed({
             color: colors.RED,
-            description: `Ses seviyesi ayarlanırken bir sorun oluştu.`
+            description: ``
         });
 
         return client.tempMessage(message.channel as TextChannel, embed, 10000);

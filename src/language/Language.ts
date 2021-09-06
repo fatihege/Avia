@@ -19,7 +19,7 @@ export default class Language {
     public parse(obj: object, path: string[] = []) {
         for (const [key, value] of Object.entries(obj)) {
             if (!value || typeof value !== 'object' || Array.isArray(value)) {
-                this.translates[path.concat(key).join('.')] = value as string | string[];
+                this.translates[path.concat(key).join('.')] = value;
             } else {
                 this.parse(value, path.concat(key));
             }
@@ -49,10 +49,10 @@ export default class Language {
             }
             return this.parseArgs(translated as string, args);
         }
-        return null;
+        return 'Error';
     }
 
     public parseArgs(str: string, args: Array<any>): string {
-        return str.replace(/{(\d)}/g, (substr, i) => (args[parseInt(i)] || null).toString());
+        return str.replace(/{(\d)}/g, (substr, i) => (args[parseInt(i)] || 'Error').toString());
     }
 }
