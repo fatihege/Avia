@@ -4,12 +4,12 @@ export const Bot = {
     PREFIX_MESSAGES: ['ahelp', 'prefix'],
     PERMISSION_ROLE: 'Avia',
     COOLDOWN: 3000,
-    SOURCE_SQUAD_LOGO: 'https://cdn.discordapp.com/icons/815870678406397962/8e7f69677d9db48d69a13976cf8e0fee.webp',
+    SUPPORT_LOGO: 'https://imgupload.io/images/2021/09/06/512x512.png',
     AUTHOR_ID: '799520588485361675',
     INVITE_URL: 'https://discord.com/oauth2/authorize?client_id=882969836257427526&scope=bot&permissions=473165166',
-    SUPPORT_URL: 'https://discord.gg/Xn3JRrbY8d',
-    TOP_GG: 'https://top.gg/bot/838775980184436808',
-    GITHUB: 'https://github.com/fatihege/Avia'
+    SUPPORT_URL: '',
+    TOP_GG: '',
+    GITHUB: ''
 }
 
 export const Colors = {

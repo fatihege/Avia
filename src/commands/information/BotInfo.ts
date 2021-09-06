@@ -90,7 +90,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         timestamp: new Date(),
         footer: {
             text: server.translate('global.brand'),
-            image: Bot.SOURCE_SQUAD_LOGO
+            image: Bot.SUPPORT_LOGO
         }
     });
 
