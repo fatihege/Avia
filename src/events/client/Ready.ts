@@ -5,11 +5,11 @@ import { Bot, Colors, Emoji } from '../../Constants';
 import ServerModel from '../../models/Server';
 import videoPlayer from '../../utility/VideoPlayer';
 import { setConnection } from '../../utility/VoiceConnection';
+import LanguageManager from "../../language/LanguageManager";
 
 export const name: string = 'ready';
 export const execute: ExecuteFunction = async (client) => {
-    let guildCount: number = (await client.shard.fetchClientValues('guilds.cache.size')).reduce((a, b) => a + b, 0);
-    client.user.setActivity(`${Bot.PREFIX_MESSAGES[0]} | ${guildCount} Servers`, { type: 'PLAYING' });
+    client.user.setActivity(`${Bot.PREFIX_MESSAGES[0]} | Game, moderation and music bot.`, { type: 'WATCHING' });
 
     const guilds = (await client.shard.fetchClientValues('guilds.cache'))[0];
     guilds.map(async (g) => {
@@ -29,7 +29,7 @@ export const execute: ExecuteFunction = async (client) => {
                     name: client.user.tag,
                     image: client.user.displayAvatarURL()
                 },
-                description: 'Yeniden bağlanıldı.',
+                description: LanguageManager.translate(server.language, 'event.ready.music.reconnected'),
             });
             await textChannel.send(embed);
 
@@ -39,7 +39,7 @@ export const execute: ExecuteFunction = async (client) => {
                     name: client.user.tag,
                     image: client.user.displayAvatarURL()
                 },
-                description: `${Emoji.MAG_RIGHT} Sıradaki şarkı bulunuyor...`,
+                description: `${Emoji.MAG_RIGHT} ${LanguageManager.translate(server.language, 'event.ready.music.finding.next.song')}`,
             });
             let playing: boolean;
             let infoMessage: Message;

@@ -205,6 +205,12 @@
                 },
                 "cooldown": "Lütfen `{0}` komutunu kullanmadan önce **{1}** saniye bekleyin.",
                 "incorrect.syntax": "Yanlış kullanım. `{0}` komutunun doğru kullanımı:\n```\n{1}{0} {2}\n```"
+            },
+            "ready": {
+                "music": {
+                    "reconnected": "Yeniden bağlanıldı.",
+                    "finding.next.song": "Sıradaki şarkı bulunuyor..."
+                }
             }
         },
         "command": {
