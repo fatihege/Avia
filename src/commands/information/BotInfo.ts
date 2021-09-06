@@ -43,7 +43,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             image: client.user.displayAvatarURL()
         },
         thumbnail: client.user.displayAvatarURL(),
-        title: server.translate('command.botinfo.title'),
+        title: server.translate('command.botinfo.message.title'),
         fields: [
             {
                 name: server.translate('command.botinfo.message.field.os.name'),

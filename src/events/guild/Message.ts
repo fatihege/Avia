@@ -83,6 +83,8 @@ export const execute: ExecuteFunction = async (client, message: Message) => {
         if (typeof botPermissions === 'string' && !Array.isArray(botPermissions)) botPermissions = [botPermissions];
         if (!botPermissions.includes('EMBED_LINKS')) botPermissions.push('EMBED_LINKS');
         if (!botPermissions.includes('SEND_MESSAGES')) botPermissions.push('SEND_MESSAGES');
+        if (!botPermissions.includes('MANAGE_MESSAGES')) botPermissions.push('MANAGE_MESSAGES');
+        if (!botPermissions.includes('ADD_REACTIONS')) botPermissions.push('ADD_REACTIONS');
 
         validatePermissions(botPermissions, commandName);
 
@@ -184,6 +186,7 @@ export const execute: ExecuteFunction = async (client, message: Message) => {
         await command.execute(client, server, message, args, Colors, commandName);
     } catch (err) {
         console.error(`${commandName} | ERROR:`, err);
+        client.logger.error(`${commandName} | ERROR: ${err.message}`);
         message.channel.send(client.errorEmbed(server.language, message.guild, err));
     }
 }

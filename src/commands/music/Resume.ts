@@ -67,5 +67,5 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     message.channel.send(embed);
 
-    videoPlayer(client, message.guild, serverQueue.songs[serverQueue.order], serverQueue.pausedTime);
+    videoPlayer(client, message.guild, server.language, serverQueue.songs[serverQueue.order], serverQueue.pausedTime);
 }

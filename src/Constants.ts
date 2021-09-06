@@ -6,7 +6,7 @@ export const Bot = {
     COOLDOWN: 3000,
     SOURCE_SQUAD_LOGO: 'https://cdn.discordapp.com/icons/815870678406397962/8e7f69677d9db48d69a13976cf8e0fee.webp',
     AUTHOR_ID: '799520588485361675',
-    INVITE_URL: 'https://discord.com/oauth2/authorize?client_id=838775980184436808&scope=bot&permissions=201583686',
+    INVITE_URL: 'https://discord.com/oauth2/authorize?client_id=882969836257427526&scope=bot&permissions=473165166',
     SUPPORT_URL: 'https://discord.gg/Xn3JRrbY8d',
     TOP_GG: 'https://top.gg/bot/838775980184436808',
     GITHUB: 'https://github.com/fatihege/Avia'

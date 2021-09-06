@@ -5,8 +5,9 @@ import { Colors } from '../Constants';
 import streamFinish from './StreamFinish';
 import escapeMarkdown from './EscapeMarkdown';
 import { getConnection, setStreamDispatcher, getStreamDispatcher, setConnection } from './VoiceConnection';
+import LanguageManager from "../language/LanguageManager";
 
-const videoPlayer = async (client, guild, song, seek: number = null): Promise<boolean> => {
+const videoPlayer = async (client, guild, language, song, seek: number = null): Promise<boolean> => {
     const connection = getConnection(guild.id);
     let serverQueue = await wio.fetch(`queue_${guild.id}`);
     serverQueue.playing = true;
@@ -18,7 +19,7 @@ const videoPlayer = async (client, guild, song, seek: number = null): Promise<bo
 
         let embed: MessageEmbed = client.embed({
             color: Colors.BLUE,
-            description: `Kuyruktaki bütün şarkılar oynatıldı.`
+            description: LanguageManager.translate(language, 'global.music.queue.finish')
         });
         textChannel.send(embed);
         if (getStreamDispatcher(guild.id)) {
@@ -39,15 +40,15 @@ const videoPlayer = async (client, guild, song, seek: number = null): Promise<bo
         thumbnail: song.image,
         fields: [
             {
-                name: 'Şu an oynatılıyor',
+                name: LanguageManager.translate(language, 'global.music.now.playing'),
                 value: `[${escapeMarkdown(song.title)}](${song.url})`
             },
             {
-                name: 'Süre',
+                name: LanguageManager.translate(language, 'global.music.duration'),
                 value: song.duration
             },
             {
-                name: 'Sıra',
+                name: LanguageManager.translate(language, 'global.music.now.order'),
                 value: serverQueue.order + 1
             }
         ]
@@ -60,7 +61,7 @@ const videoPlayer = async (client, guild, song, seek: number = null): Promise<bo
     const stream = ytdl(song.url, { filter: 'audioonly' });
     const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0 })
         .on('finish', async () => {
-            await streamFinish(serverQueue, client, guild);
+            await streamFinish(serverQueue, client, guild, language);
         });
 
     setStreamDispatcher(guild.id, streamDispatcher);

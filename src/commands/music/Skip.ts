@@ -45,7 +45,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     serverQueue.loopSong = null;
     await wio.set(`queue_${message.guild.id}`, serverQueue);
 
-    streamFinish(serverQueue, client, message.guild);
+    streamFinish(serverQueue, client, message.guild, server.language);
 
     try {
         await message.react(Emoji.THUMBSUP);

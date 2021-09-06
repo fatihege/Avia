@@ -87,5 +87,5 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     message.channel.send(embed);
 
 
-    streamFinish(serverQueue, client, message.guild, order);
+    streamFinish(serverQueue, client, message.guild, server.language, order);
 }

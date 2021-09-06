@@ -76,13 +76,15 @@
                 "no.results.found": "Hiç sonuç bulunamadı.",
                 "connection.problem": "Ses kanalına bağlanırken bir sorun oluştu.",
                 "added.to.queue": "Kuyruğa eklendi",
+                "now.playing": "Şu an oynatılıyor",
                 "duration": "Süre",
                 "total.duration": "Toplam süre",
                 "order": "Sıra",
                 "no.queue": "Bu sunucuya ait bir oynatma listesi bulunamadı.",
                 "no.music.playing.on.your.channel": "Bulunduğunuz kanalda müzik çalmıyor.",
                 "no.voice.connection": "Herhangi bir ses kanalı bağlantısı yok.",
-                "disconnected": "Ses kanalı bağlantısı kesildi."
+                "disconnected": "Ses kanalı bağlantısı kesildi.",
+                "queue.finish": "Kuyruktaki bütün şarkılar oynatıldı."
             },
             "command": {
                 "aliases": "Takma Adları",

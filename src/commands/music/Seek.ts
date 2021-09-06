@@ -74,7 +74,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         streamDispatcher.pause(true);
     } catch (e) {}
 
-    videoPlayer(client, message.guild, serverQueue.songs[serverQueue.order], seek * 1000);
+    videoPlayer(client, message.guild, server.language, serverQueue.songs[serverQueue.order], seek * 1000);
 
     embed = client.embed({
         color: colors.BLUE,

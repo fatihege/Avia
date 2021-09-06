@@ -111,7 +111,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         try {
             const connection = await voiceChannel.join();
             setConnection(message.guild.id, connection);
-            playing = await videoPlayer(client, message.guild, queueConstructor.songs[0]);
+            playing = await videoPlayer(client, message.guild, server.language, queueConstructor.songs[0]);
 
             if (playing) {
                 infoMessage.delete();

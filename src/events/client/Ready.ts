@@ -50,7 +50,7 @@ export const execute: ExecuteFunction = async (client) => {
                 const connection = await voiceChannel.join();
                 setConnection(g.id, connection);
                 if (!serverQueue.paused) {
-                    playing = await videoPlayer(client, g, serverQueue.songs[serverQueue.order], serverQueue.pausedTime || 0);
+                    playing = await videoPlayer(client, g, server.language, serverQueue.songs[serverQueue.order], serverQueue.pausedTime || 0);
                 }
             } catch (e) {
                 console.error(e);
