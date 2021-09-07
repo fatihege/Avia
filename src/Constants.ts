@@ -1,5 +1,5 @@
 export const Bot = {
-    ID: '838775980184436808',
+    ID: '882969836257427526',
     DEFAULT_PREFIX: 'a.',
     PREFIX_MESSAGES: ['ahelp', 'prefix'],
     PERMISSION_ROLE: 'Avia',

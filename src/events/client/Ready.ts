@@ -20,7 +20,7 @@ export const execute: ExecuteFunction = async (client) => {
             await ServerModel.create({ id: g.id });
         }
 
-        if (serverQueue && serverQueue.playing === true && serverQueue.songs.length) {
+        if (serverQueue) {
             const textChannel = await client.channels.fetch(serverQueue.textChannel) as TextChannel;
             const voiceChannel = await client.channels.fetch(serverQueue.voiceChannel) as VoiceChannel;
             let embed = client.embed({
@@ -33,33 +33,36 @@ export const execute: ExecuteFunction = async (client) => {
             });
             await textChannel.send(embed);
 
-            embed = client.embed({
-                color: Colors.BLUE,
-                author: {
-                    name: client.user.tag,
-                    image: client.user.displayAvatarURL()
-                },
-                description: `${Emoji.MAG_RIGHT} ${LanguageManager.translate(server.language, 'event.ready.music.finding.next.song')}`,
-            });
-            let playing: boolean;
-            let infoMessage: Message;
-            if (!serverQueue.paused) {
-                infoMessage = await textChannel.send(embed);
-            }
-            try {
-                const connection = await voiceChannel.join();
-                setConnection(g.id, connection);
-                if (!serverQueue.paused) {
-                    playing = await videoPlayer(client, g, server.language, serverQueue.songs[serverQueue.order], serverQueue.pausedTime || 0);
-                }
-            } catch (e) {
-                console.error(e);
-            }
+            if (serverQueue.playing && serverQueue.songs.length) {
 
-            if (playing) {
+                embed = client.embed({
+                    color: Colors.BLUE,
+                    author: {
+                        name: client.user.tag,
+                        image: client.user.displayAvatarURL()
+                    },
+                    description: `${Emoji.MAG_RIGHT} ${LanguageManager.translate(server.language, 'event.ready.music.finding.next.song')}`,
+                });
+                let playing: boolean;
+                let infoMessage: Message;
+                if (!serverQueue.paused) {
+                    infoMessage = await textChannel.send(embed);
+                }
                 try {
-                    await infoMessage.delete();
-                } catch (e) {}
+                    const connection = await voiceChannel.join();
+                    setConnection(g.id, connection);
+                    if (!serverQueue.paused) {
+                        playing = await videoPlayer(client, g, server.language, serverQueue.songs[serverQueue.order], serverQueue.pausedTime || 0);
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+
+                if (playing) {
+                    try {
+                        await infoMessage.delete();
+                    } catch (e) {}
+                }
             }
         }
     });

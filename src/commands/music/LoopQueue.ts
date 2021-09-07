@@ -39,18 +39,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
     }
 
-    const currentSong = serverQueue.songs[serverQueue.order];
-    const firstLength = serverQueue.songs.length;
-    let lastLength: number = firstLength;
     serverQueue.loop = !serverQueue.loop;
-
-    if (!serverQueue.loop) {
-        serverQueue.songs = serverQueue.songs.filter((s) => s.id >= currentSong.id);
-    }
-
-    lastLength = serverQueue.songs.length;
-    serverQueue.order = Math.abs(serverQueue.order - (firstLength - lastLength));
-    serverQueue.loopSong = !serverQueue.loop ? (typeof serverQueue.loopSong === 'number' ? serverQueue.order : null) : serverQueue.loopSong;
     serverQueue.textChannel = message.channel.id;
     await wio.set(`queue_${message.guild.id}`, serverQueue);
 

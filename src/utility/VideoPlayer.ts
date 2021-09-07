@@ -15,7 +15,11 @@ const videoPlayer = async (client, guild, language, song, seek: number = null): 
     const textChannel = await client.channels.fetch(serverQueue.textChannel);
 
     if (!song) {
-        await wio.delete(`queue_${guild.id}`);
+        serverQueue.playing = false;
+        serverQueue.paused = false;
+        serverQueue.pausedTime = null;
+        serverQueue.songs = [];
+        await wio.set(`queue_${guild.id}`, serverQueue);
 
         let embed: MessageEmbed = client.embed({
             color: Colors.BLUE,
@@ -25,11 +29,9 @@ const videoPlayer = async (client, guild, language, song, seek: number = null): 
         if (getStreamDispatcher(guild.id)) {
             try {
                 const streamDispatcher = getStreamDispatcher(guild.id);
-                streamDispatcher.pause();
-                setStreamDispatcher(guild.id, null);
-                setConnection(guild.id, null);
+                streamDispatcher.pause(true);
             } catch (e) {
-                console.error(e)
+                console.error(e);
             }
         }
         return false;

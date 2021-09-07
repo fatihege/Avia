@@ -39,6 +39,12 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
         return client.tempMessage(message.channel as TextChannel, embed, 10000);
     }
 
+    serverQueue.playing = false;
+    serverQueue.paused = false;
+    serverQueue.pausedTime = null;
+    serverQueue.songs = [];
+    await wio.set(`queue_${message.guild.id}`, serverQueue);
+
     embed = client.embed({
         color: colors.GREEN,
         description: server.translate('command.stop.message.stopped')
@@ -46,11 +52,8 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     message.channel.send(embed);
 
-    await wio.delete(`queue_${message.guild.id}`);
     const streamDispatcher = getStreamDispatcher(message.guild.id);
     try {
         streamDispatcher.pause(true);
     } catch (e) {}
-    setStreamDispatcher(message.guild.id, null);
-    setConnection(message.guild.id, null);
 }

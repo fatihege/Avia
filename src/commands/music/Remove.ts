@@ -77,6 +77,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     let order = serverQueue.order;
     if (order >= serverQueue.songs.length) order = serverQueue.songs.length - 1;
     serverQueue.order = order;
+    serverQueue.textChannel = message.channel.id;
     await wio.set(`queue_${message.guild.id}`, serverQueue);
 
     embed = client.embed({
