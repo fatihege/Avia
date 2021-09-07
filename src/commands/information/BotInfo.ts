@@ -11,7 +11,6 @@ export const aliases: string[] = ['botinfo', 'botbilgi'];
 export const description: string = 'command.botinfo.description';
 export const category: string = 'category.information';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
-    console.log(aviaVersion)
     let embed: MessageEmbed;
 
     // Uptime
