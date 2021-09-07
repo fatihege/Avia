@@ -3,7 +3,7 @@ import { appendFileSync } from 'fs';
 import { Logger as LoggerConstant } from '../Constants';
 
 export default class Logger {
-    private logDirectory: string = `${__dirname}/../../${LoggerConstant.LOG_FILE}`;
+    private logDirectory: string = `${__dirname}/../../../${LoggerConstant.LOG_FILE}`;
 
     private send(message, type) {
         const date = new Date()

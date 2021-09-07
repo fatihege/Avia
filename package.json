@@ -7,7 +7,7 @@
     "build": "tsc",
     "dev": "nodemon --ext ts-node src/index.ts",
     "dev:build": "yarn build && yarn dev",
-    "start": "node dist/index",
+    "start": "node ./dist/src/index",
     "start:build": "yarn build && yarn start"
   },
   "author": "Fatih EGE",

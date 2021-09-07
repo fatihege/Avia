@@ -5,11 +5,13 @@ import timeConvert from '../../utility/TimeConvert';
 import byte from '../../utility/Byte';
 import { Bot } from '../../Constants';
 import TimeUnits from '../../interfaces/TimeUnits';
+import { version as aviaVersion } from '../../../package.json';
 
 export const aliases: string[] = ['botinfo', 'botbilgi'];
 export const description: string = 'command.botinfo.description';
 export const category: string = 'category.information';
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
+    console.log(aviaVersion)
     let embed: MessageEmbed;
 
     // Uptime
@@ -61,6 +63,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
                 name: server.translate('command.botinfo.message.field.versions.name'),
                 value: server.translate(
                     'command.botinfo.message.field.versions.value',
+                    aviaVersion,
                     nodeJSVersion,
                     discordJSVersion
                 )

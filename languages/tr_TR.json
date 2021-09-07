@@ -330,7 +330,7 @@
                         },
                         "versions": {
                             "name": "Sürümler",
-                            "value": "**Node.js:**: {0}\n**Discord.js:** {1}"
+                            "value": "**Avia:** {0}\n**Node.js:**: {1}\n**Discord.js:** {2}"
                         },
                         "cpu": {
                             "name": "Merkezi İşlem Birimi",

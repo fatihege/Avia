@@ -6,7 +6,7 @@ const logger = new Logger();
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: resolve(__dirname, '..', '..', 'db', 'database.sqlite'),
+    storage: resolve(__dirname, '..', '..', '..', 'db', 'database.sqlite'),
     logging: false,
     define: {
         timestamps: false

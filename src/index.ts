@@ -8,7 +8,7 @@ dotenv.config({
 
 const logger = new Logger();
 
-const manager = new ShardingManager('./dist/shard.js', {
+const manager = new ShardingManager('./dist/src/shard.js', {
     totalShards: 'auto',
     token: process.env.TOKEN
 });
