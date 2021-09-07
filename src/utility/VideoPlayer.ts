@@ -4,7 +4,7 @@ import ytdl from 'ytdl-core';
 import { Colors } from '../Constants';
 import streamFinish from './StreamFinish';
 import escapeMarkdown from './EscapeMarkdown';
-import { getConnection, setStreamDispatcher, getStreamDispatcher, setConnection } from './VoiceConnection';
+import { getConnection, setStreamDispatcher, getStreamDispatcher } from './VoiceConnection';
 import LanguageManager from "../language/LanguageManager";
 
 const videoPlayer = async (client, guild, language, song, seek: number = null): Promise<boolean> => {
@@ -61,7 +61,7 @@ const videoPlayer = async (client, guild, language, song, seek: number = null): 
     }
 
     const stream = ytdl(song.url, { filter: 'audioonly' });
-    const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0 })
+    const streamDispatcher = connection.play(stream, { seek: seek ? seek / 1000 : 0, volume: serverQueue.volume || 1 })
         .on('finish', async () => {
             await streamFinish(serverQueue, client, guild, language);
         });

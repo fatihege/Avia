@@ -102,6 +102,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             loop: false,
             paused: false,
             pausedTime: null,
+            volume: 1,
             songs: [song]
         };
 
@@ -148,6 +149,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
             loop: !!serverQueue.loop,
             paused: serverQueue.paused,
             pausedTime: serverQueue.pausedTime || null,
+            volume: serverQueue.volume || 1,
             songs: (serverQueue &&
                 serverQueue.songs.length) ? [
                 ...serverQueue.songs,

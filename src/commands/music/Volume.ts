@@ -78,6 +78,8 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     }
 
     try {
+        serverQueue.volume = volume / 100;
+        await wio.set(`queue_${message.guild.id}`, serverQueue);
         streamDispatcher.setVolume(volume / 100);
 
         embed = client.embed({
