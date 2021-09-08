@@ -562,7 +562,9 @@
                 "usage": "[ sorgu metni ]*",
                 "message": {
                     "searching": "Şarkı sözleri aranıyor...",
-                    "for.more": "Daha fazlası için: <{0}>"
+                    "for.more": "Daha fazlası için: <{0}>",
+                    "no.results.found": "Sonuç bulunamadı.",
+                    "error": "Bilinmeyen bir hata oluştu."
                 }
             },
             "volume": {

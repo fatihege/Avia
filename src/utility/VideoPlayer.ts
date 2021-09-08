@@ -25,6 +25,7 @@ const videoPlayer = async (client, guild, language, song, seek: number = null): 
             color: Colors.BLUE,
             description: LanguageManager.translate(language, 'global.music.queue.finish')
         });
+        
         textChannel.send(embed);
         if (getStreamDispatcher(guild.id)) {
             try {

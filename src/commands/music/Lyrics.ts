@@ -21,12 +21,33 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     const response = await fetch(`https://genius-api.fatihege.repl.co/search?q=${encodeURI(args.join(' '))}`);
     const data = await response.json();
 
-    embed = client.embed({
-        color: colors.DEFAULT,
-        thumbnail: data.thumbnailUrl,
-        title: `${escapeMarkdown(data.title)}`,
-        description: `${data.lyrics}\n\n${server.translate('command.lyrics.message.for.more', data.url)}`,
-    });
+    if (data && data.lyrics) {
+        embed = client.embed({
+            color: colors.DEFAULT,
+            title: `${escapeMarkdown(data.title)}`,
+            description: `${data.lyrics}\n\n${server.translate('command.lyrics.message.for.more', data.url)}`,
+        });
 
-    infoMessage.edit(embed);
+        if (data.thumbnailUrl) embed.setThumbnail(data.thumbnailUrl)
+    } else {
+        embed = client.embed({
+            color: colors.RED,
+            description: server.translate('command.lyrics.message.no.results.found'),
+        });
+    }
+
+    try {
+        await infoMessage.edit(embed);
+    } catch (e) {
+        try {
+            embed.setDescription(embed.description.slice(0, 4096));
+            await infoMessage.edit(embed);
+        } catch (e) {
+            embed = client.embed({
+                color: colors.RED,
+                description: server.translate('command.lyrics.message.error'),
+            });
+            await infoMessage.edit(embed);
+        }
+    }
 }

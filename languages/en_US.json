@@ -560,7 +560,9 @@
                 "usage": "[ query ]*",
                 "message": {
                     "searching": "Searching for lyrics...",
-                    "for.more": "For more: <{0}>"
+                    "for.more": "For more: <{0}>",
+                    "no.results.found": "No results found.",
+                    "error": "An unknown error has occurred."
                 }
             },
             "volume": {

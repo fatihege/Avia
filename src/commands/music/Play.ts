@@ -92,7 +92,7 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
 
     if (!song) return;
 
-    if (!serverQueue) {
+    if (!serverQueue || !serverQueue.songs.length) {
         let queueConstructor = {
             voiceChannel: voiceChannel.id,
             textChannel: message.channel.id,

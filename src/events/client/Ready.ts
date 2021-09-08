@@ -34,8 +34,8 @@ export const execute: ExecuteFunction = async (client) => {
 
             if (!serverQueue.songs.length) {
                 try {
-                    await voiceChannel.leave();
-                    await wio.delete(`queue_${g.id}`);
+                    const connection = await voiceChannel.join();
+                    setConnection(g.id, connection);
                 } catch (e) {
                     console.error(e);
                 }
