@@ -20,12 +20,13 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     const infoMessage = await message.channel.send(embed);
     const response = await fetch(`https://genius-api.fatihege.repl.co/search?q=${encodeURI(args.join(' '))}`);
     const data = await response.json();
+    const forMoreString: string = `\n\n**${server.translate('command.lyrics.message.for.more', data.url)}**`;
 
     if (data && data.lyrics) {
         embed = client.embed({
             color: colors.DEFAULT,
             title: `${escapeMarkdown(data.title)}`,
-            description: `${data.lyrics}\n\n${server.translate('command.lyrics.message.for.more', data.url)}`,
+            description: `${data.lyrics}`,
         });
 
         if (data.thumbnailUrl) embed.setThumbnail(data.thumbnailUrl)
@@ -39,15 +40,17 @@ export const execute: ExecuteFunction = async (client, server, message, args, co
     try {
         await infoMessage.edit(embed);
     } catch (e) {
-        try {
-            embed.setDescription(embed.description.slice(0, 4096));
-            await infoMessage.edit(embed);
-        } catch (e) {
-            embed = client.embed({
-                color: colors.RED,
-                description: server.translate('command.lyrics.message.error'),
-            });
-            await infoMessage.edit(embed);
+        if (data && data.lyrics) {
+            try {
+                embed.setDescription(`${embed.description.slice(0, 4096 - forMoreString.length - 3)}...${forMoreString}`);
+                await infoMessage.edit(embed);
+            } catch (e) {
+                embed = client.embed({
+                    color: colors.RED,
+                    description: server.translate('command.lyrics.message.error'),
+                });
+                await infoMessage.edit(embed);
+            }
         }
     }
 }
