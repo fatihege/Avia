@@ -607,6 +607,9 @@
                     "range": "Song number must be in the range of 1-15.",
                     "removed": "**{0}** removed from playlist."
                 }
+            },
+            "eval": {
+                "usage": "[ code ]"
             }
         }
     }

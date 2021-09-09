@@ -1,6 +1,7 @@
 import { ExecuteFunction } from '../../interfaces/Command';
 
 export const aliases: string[] = ['eval'];
+export const usage: string = 'command.eval.usage';
 export const authorOnly: boolean = true;
 export const minArgs: number = 1;
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {

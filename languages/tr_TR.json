@@ -609,6 +609,9 @@
                     "range": "Şarkı numarası 1-15 aralığında olmalıdır.",
                     "removed": "**{0}** şarkı listesinden kaldırıldı."
                 }
+            },
+            "eval": {
+                "usage": "[ kod ]"
             }
         }
     }
