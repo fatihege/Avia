@@ -10,13 +10,16 @@ export const examples: string[] = ['', 'ping'];
 export const maxArgs: number = 1;
 export const execute: ExecuteFunction = async (client, server, message, args, colors) => {
     let embed: MessageEmbed;
-    const selectedCommand: Command = args[0] ?
+    let selectedCommand: Command = args[0] ?
         (client.commands.find((c) => c.aliases.includes(args[0])) || null) : null;
+    if (selectedCommand && selectedCommand.authorOnly) selectedCommand = null;
 
     if (!selectedCommand) {
         let categories: any[] = [];
 
         client.commands.map((c) => {
+            if (c.authorOnly) return;
+
             if (!categories[server.translate(`${c.category}.code`)]) {
                 categories[server.translate(`${c.category}.code`)] = [];
                 categories[server.translate(`${c.category}.code`)].code = `category.${
