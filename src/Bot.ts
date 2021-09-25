@@ -113,7 +113,7 @@ export default class Bot extends Client {
         return this.embed({
             color: Colors.RED,
             title: LanguageManager.translate(language, 'error.reporter.title'),
-            description: `${LanguageManager.translate(
+            description: LanguageManager.translate(
                 language,
                 'error.reporter.description',
                 error.name,
@@ -121,7 +121,7 @@ export default class Bot extends Client {
                 error.method,
                 error.message,
                 error.path
-            )}\n\n[${LanguageManager.translate(language, 'global.support.server')}](${BotConstant.SUPPORT_URL})`,
+            ),
             timestamp: new Date()
         });
     }
