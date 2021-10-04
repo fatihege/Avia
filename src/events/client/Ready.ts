@@ -22,8 +22,11 @@ export const execute: ExecuteFunction = async (client) => {
         }
 
         if (serverQueue) {
-            const textChannel = await client.channels.fetch(serverQueue.textChannel) as TextChannel;
-            const voiceChannel = await client.channels.fetch(serverQueue.voiceChannel) as VoiceChannel;
+            let textChannel, voiceChannel;
+	    try {
+                 textChannel = await client.channels.fetch(serverQueue.textChannel) as TextChannel;
+                 voiceChannel = await client.channels.fetch(serverQueue.voiceChannel) as VoiceChannel;
+	    } catch (e) {}
 
             if (!voiceChannel || !textChannel) {
                 await wio.delete(`queue_${g.id}`);
